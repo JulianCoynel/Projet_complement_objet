@@ -11,6 +11,17 @@ public abstract class Capteur {
 	private ArrayList<Semaphore> sesSemaphores;
 	private ElementDeRegulation sonElement;
 	
+	public Capteur(SegmentDeRoute segment,ArrayList<Semaphore> semaphores,ElementDeRegulation element) {
+		sonSegment=segment;
+		set_sesSemaphores(semaphores);
+		sonElement=element;
+	}
+	
+	public Capteur(SegmentDeRoute segment,Semaphore semaphore,ElementDeRegulation element) {
+		this(segment,new ArrayList<Semaphore>(),element);
+		add_Semaphore(semaphore);
+	}
+	
 	public void set_sonSegment(SegmentDeRoute s) {
 		sonSegment=s;
 	}
