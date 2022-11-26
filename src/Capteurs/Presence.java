@@ -8,8 +8,14 @@ import Semaphores.Semaphore;
 
 public class Presence extends Capteur{
 
-	public Presence(SegmentDeRoute segment, ArrayList<Semaphore> semaphores, ElementDeRegulation element) {
-		super(segment, semaphores, element);
+	public Presence(SegmentDeRoute segment, ArrayList<Semaphore> semaphores, ElementDeRegulation element,boolean sens) {
+		super(segment, semaphores, element,sens);
+	}
+
+	@Override
+	public boolean est_actif() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
