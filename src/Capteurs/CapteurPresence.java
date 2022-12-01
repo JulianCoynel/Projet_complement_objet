@@ -6,9 +6,9 @@ import Elements_de_regulations.ElementDeRegulation;
 import Segments_de_route.SegmentDeRoute;
 import Semaphores.Semaphore;
 
-public class Presence extends Capteur{
+public class CapteurPresence extends Capteur{
 
-	public Presence(SegmentDeRoute segment, ArrayList<Semaphore> semaphores, ElementDeRegulation element,boolean sens) {
+	public CapteurPresence(SegmentDeRoute segment, ArrayList<Semaphore> semaphores, ElementDeRegulation element,boolean sens) {
 		super(segment, semaphores, element,sens);
 	}
 

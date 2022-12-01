@@ -6,28 +6,25 @@ import Capteurs.Capteur;
 import Segments_de_route.SegmentDeRoute;
 
 /**
- * La classe définissant un sémaphore de type feu bicolore
+ * La classe definissant un semaphore de type feu bicolore
  * @author Romain BAUDOUIN
  *
  */
 public class FeuBicolore extends Semaphore {
 	
 	/**
-	 * Classe énumérée définissant les deux couleurs possibles d'un feu bicolore
+	 * Classe enumeree definissant les deux couleurs possibles d'un feu bicolore
 	 * @author Romain BAUDOUIN
-	 *
 	 */
 	enum Bicolore {ROUGE, VERT}
 	
-	/**
-	 * La couleur du feu
-	 */
+	/** La couleur du feu */
 	private Bicolore couleur;
 
 	/**
-	 * Constructeur d'un feu bicolore, on initialise le feu à VERT
+	 * Constructeur d'un feu bicolore, on initialise le feu a VERT
 	 * @param segment Son segment de route
-	 * @param capteurs Les capteurs qui lui sont reliés
+	 * @param capteurs Les capteurs qui lui sont relies
 	 * @param sens Le sens de circulation auquel il appartient
 	 */
 	public FeuBicolore(SegmentDeRoute segment, ArrayList<Capteur> capteurs, boolean sens) {
@@ -36,9 +33,9 @@ public class FeuBicolore extends Semaphore {
 	}
 	
 	/**
-	 * Constructeur d'un feu bicolore avec un seul capteur, on initialise le feu à VERT
+	 * Constructeur d'un feu bicolore avec un seul capteur, on initialise le feu a VERT
 	 * @param segment Son segment de route
-	 * @param capteur Un capteur que l'on souhaite relier au sémaphore à sa création
+	 * @param capteur Un capteur que l'on souhaite relier au semaphore a sa creation
 	 * @param sens Le sens de circulation auquel il appartient
 	 */
 	public FeuBicolore(SegmentDeRoute segment,Capteur capteur,boolean sens) {
@@ -47,10 +44,10 @@ public class FeuBicolore extends Semaphore {
 	}
 	
 	/**
-     * Cette fonction permet de calculer la vitesse à laquelle le véhicule doit se mettre lorsqu'il rencontre le sémaphore
+     * Cette fonction permet de calculer la vitesse a laquelle le vehicule doit se mettre lorsqu'il rencontre le semaphore
      * Si le feu est vert on renvoie vitesseActuelle et sinon 0
-     * @param vitesseActuelle la vitesse actuelle du véhicule
-     * @return la nouvelle vitesse qui doit être prise
+     * @param vitesseActuelle la vitesse actuelle du vehicule
+     * @return la nouvelle vitesse qui doit etre prise
      */
 	public int contrainteVitesseSemaphore(int vitesseActuelle) {
 		int res = 0;
@@ -72,7 +69,7 @@ public class FeuBicolore extends Semaphore {
 	}
 	
 	/**
-	 * Permet de récupérer la couleur d'un feu
+	 * Permet de recuperer la couleur d'un feu
 	 * @return la couleur actuelle du feu
 	 */
 	public Bicolore getCouleur() {
