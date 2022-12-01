@@ -1,9 +1,9 @@
-package Semaphores;
+package semaphores;
 
 import java.util.ArrayList;
 
-import Capteurs.Capteur;
-import Segments_de_route.SegmentDeRoute;
+import capteurs.Capteur;
+import routes.Route;
 
 /**
  * La classe definissant un semaphore de type panneau de limitation de vitesse
@@ -22,7 +22,7 @@ public class PanneauLimitationVitesse extends Semaphore {
 	 * @param sens Le sens de circulation auquel il appartient
 	 * @param v La vitesse max indiquee par le panneau
 	 */
-	public PanneauLimitationVitesse(SegmentDeRoute segment, ArrayList<Capteur> capteurs, boolean sens,int v) {
+	public PanneauLimitationVitesse(Route segment, ArrayList<Capteur> capteurs, boolean sens,int v) {
 		super(segment, capteurs, sens);
 		this.vitesseMax = v;
 	}
@@ -34,7 +34,7 @@ public class PanneauLimitationVitesse extends Semaphore {
 	 * @param sens Le sens de circulation auquel il appartient
 	 * @param v La vitesse max indiquee par le panneau
 	 */
-	public PanneauLimitationVitesse(SegmentDeRoute segment,Capteur capteur,boolean sens,int v) {
+	public PanneauLimitationVitesse(Route segment,Capteur capteur,boolean sens,int v) {
 		super(segment, capteur, sens);
 		this.vitesseMax = v;
 	}

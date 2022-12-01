@@ -1,9 +1,9 @@
-package Semaphores;
+package semaphores;
 
 import java.util.ArrayList;
 
-import Capteurs.Capteur;
-import Segments_de_route.SegmentDeRoute;
+import capteurs.Capteur;
+import routes.Route;
 
 /**
  * La classe definissant un semaphore de type feu tricolore
@@ -27,7 +27,7 @@ public class FeuTricolore extends Semaphore {
 	 * @param capteurs Les capteurs qui lui sont relies
 	 * @param sens Le sens de circulation auquel il appartient
 	 */
-	public FeuTricolore(SegmentDeRoute segment, ArrayList<Capteur> capteurs, boolean sens) {
+	public FeuTricolore(Route segment, ArrayList<Capteur> capteurs, boolean sens) {
 		super(segment, capteurs, sens);
 		this.couleur = Tricolore.VERT;
 	}
@@ -38,7 +38,7 @@ public class FeuTricolore extends Semaphore {
 	 * @param capteur Un capteur que l'on souhaite relier au semaphore a sa creation
 	 * @param sens Le sens de circulation auquel il appartient
 	 */
-	public FeuTricolore(SegmentDeRoute segment,Capteur capteur,boolean sens) {
+	public FeuTricolore(Route segment,Capteur capteur,boolean sens) {
 		super(segment, capteur, sens);
 		this.couleur = Tricolore.VERT;
 	}

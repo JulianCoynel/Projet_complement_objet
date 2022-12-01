@@ -1,4 +1,4 @@
-package Elements_de_regulations;
+package regulations;
 
 public class ElementDeRegulation {
 

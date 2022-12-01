@@ -1,9 +1,9 @@
-package Semaphores;
+package semaphores;
 
 import java.util.ArrayList;
 
-import Capteurs.Capteur;
-import Segments_de_route.SegmentDeRoute;
+import capteurs.Capteur;
+import routes.Route;
 
 /**
  * La classe abstraite permettant de definir les semaphores
@@ -12,7 +12,7 @@ import Segments_de_route.SegmentDeRoute;
  */
 public abstract class Semaphore {
 	/** Le segment auquel appartient le semaphore */
-	private SegmentDeRoute sonSegment;
+	private Route sonSegment;
 	/** La liste de capteurs relies au semaphore */
 	private ArrayList<Capteur> sesCapteurs;
 	/** Le sens de circulation auquel appartient le semaphore */
@@ -24,7 +24,7 @@ public abstract class Semaphore {
 	 * @param capteurs Les capteurs qui lui sont relies
 	 * @param sens Le sens de circulation auquel il appartient
 	 */
-	public Semaphore(SegmentDeRoute segment,ArrayList<Capteur> capteurs,boolean sens) {
+	public Semaphore(Route segment,ArrayList<Capteur> capteurs,boolean sens) {
 		sonSegment = segment;
 		sesCapteurs = capteurs;
 		this.sens = sens;
@@ -36,7 +36,7 @@ public abstract class Semaphore {
 	 * @param capteur Un capteur que l'on souhaite relier au semaphore a sa creation
 	 * @param sens Le sens de circulation auquel il appartient
 	 */
-	public Semaphore(SegmentDeRoute segment,Capteur capteur,boolean sens) {
+	public Semaphore(Route segment,Capteur capteur,boolean sens) {
 		this(segment,new ArrayList<Capteur>(),sens);
 		this.add_Capteur(capteur);
 	}
@@ -52,7 +52,7 @@ public abstract class Semaphore {
 	 * Permet de changer le segment de route d'un semaphore
 	 * @param seg Son segment de route
 	 */
-	public void set_sonSegment(SegmentDeRoute seg) {
+	public void set_sonSegment(Route seg) {
 		sonSegment = seg;
 	}
 	
@@ -76,7 +76,7 @@ public abstract class Semaphore {
 	 * Permet de recuperer son segment de route
 	 * @return Son segment de route
 	 */
-	public SegmentDeRoute get_sonSegment() {
+	public Route get_sonSegment() {
 		return sonSegment;
 	}
 	
