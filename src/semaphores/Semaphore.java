@@ -38,7 +38,7 @@ public abstract class Semaphore {
 	 */
 	public Semaphore(Route segment,Capteur capteur,boolean sens) {
 		this(segment,new ArrayList<Capteur>(),sens);
-		this.add_Capteur(capteur);
+		this.addCapteur(capteur);
 	}
 	
 	/**
@@ -52,15 +52,15 @@ public abstract class Semaphore {
 	 * Permet de changer le segment de route d'un semaphore
 	 * @param seg Son segment de route
 	 */
-	public void set_sonSegment(Route seg) {
+	public void setSonSegment(Route seg) {
 		sonSegment = seg;
 	}
 	
 	/**
-	 * Permet de changer les capteurs d'un s�maphore
+	 * Permet de changer les capteurs d'un semaphore
 	 * @param cl Une liste de capteurs relies au semaphore
 	 */
-	public void set_sesCapteurs(ArrayList<? extends Capteur> cl) {
+	public void setSesCapteurs(ArrayList<? extends Capteur> cl) {
 		sesCapteurs=new ArrayList<Capteur>(cl);
 	}
 	
@@ -68,7 +68,7 @@ public abstract class Semaphore {
 	 * Permet d'ajouter un capteur a la liste de capteurs relies au semaphore
 	 * @param c Le capteur a ajouter
 	 */
-	public void add_Capteur(Capteur c) {
+	public void addCapteur(Capteur c) {
 		sesCapteurs.add(c);
 	}
 	
@@ -76,7 +76,7 @@ public abstract class Semaphore {
 	 * Permet de recuperer son segment de route
 	 * @return Son segment de route
 	 */
-	public Route get_sonSegment() {
+	public Route getSonSegment() {
 		return sonSegment;
 	}
 	
@@ -84,7 +84,7 @@ public abstract class Semaphore {
 	 * Permet de recuperer son ArrayList de capteurs
 	 * @return sa liste de capteurs
 	 */
-	public ArrayList<Capteur> get_sesCapteurs() {
+	public ArrayList<Capteur> getSesCapteurs() {
 		return sesCapteurs;
 	}
 	
@@ -92,7 +92,7 @@ public abstract class Semaphore {
 	 * Permet de recuperer le sens de circulation du semaphore
 	 * @return son sens de circulation
 	 */
-	public boolean get_sonSens() {
+	public boolean getSonSens() {
 		return sens;
 	}
 }

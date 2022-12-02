@@ -8,7 +8,8 @@ import vehicules.Vehicule;
 
 public class Route {
 	private int longueur;
-	private ArrayList<Jonction> sesJonctions;
+	private Jonction jonctionSensTrue;
+	private Jonction jonctionSensFalse;
 	private ArrayList<Semaphore> sesSemaphores;
 	private ArrayList<Vehicule> sesVehicules;
 	
@@ -17,17 +18,24 @@ public class Route {
 	}
 
 	public int getLongueur() {
-		// TODO Auto-generated method stub
-		return 0;
+		return longueur;
 	}
 
 	public Jonction getJonction(boolean sens) {
-		// TODO Auto-generated method stub
-		return null;
+		if (sens == true) {
+			return jonctionSensTrue;
+		} else {
+			return jonctionSensFalse;
+		}
 	}
 
-	public int getLimitationVitesse(boolean sens) {
-		// TODO Auto-generated method stub
+	public int getVitesse(boolean sens, int vitesseActuel) {
+		int v = vitesseActuel;
+		for (Semaphore s : sesSemaphores) {
+			if (s.getSonSens() == sens) {
+				v = Math.min(v, s.contrainteVitesseSemaphore(vitesseActuel));
+			}
+		}
 		return 0;
 	}
 }

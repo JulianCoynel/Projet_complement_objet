@@ -26,7 +26,7 @@ public abstract class Vehicule {
 	}
 	
 	private int getVitesse() {
-		return Math.min(vitesseMax, sonSegmentDeRoute.getLimitationVitesse(sens));
+		return sonSegmentDeRoute.getVitesse(sens, vitesseMax);
 	}
 	
 	public void avance () {
