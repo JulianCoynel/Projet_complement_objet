@@ -39,6 +39,7 @@ public class PanneauLimitationVitesse extends Semaphore {
 		this.vitesseMax = v;
 	}
 	
+	@Override
 	/**
 	 * @param vitesseActuelle la vitesse actuelle du vehicule
 	 * @return La vitesse max indiquee par le panneau
@@ -55,11 +56,18 @@ public class PanneauLimitationVitesse extends Semaphore {
 		vitesseMax = v;
 	}
 	
-	/**
-	 * Permet de recuperer La vitesse max indiquee par le panneau
-	 * @return La vitesse max indiquee par le panneau
-	 */
-	public int getVitesseMax() {
+	@Override
+	public boolean estRouge() {
+		return false;
+	}
+
+	@Override
+	public int getDivisionVitesse() {
+		return 1;
+	}
+
+	@Override
+	public int getLimitationVitesse() {
 		return vitesseMax;
 	}
 

@@ -109,4 +109,8 @@ public abstract class Semaphore {
 	 * @return true si le feu est rouge, false sinon
 	 */
 	public abstract boolean estRouge();
+	
+	public abstract int getDivisionVitesse();
+	
+	public abstract int getLimitationVitesse();
 }

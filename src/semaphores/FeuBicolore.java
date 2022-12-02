@@ -43,6 +43,7 @@ public class FeuBicolore extends Semaphore {
 		this.couleur = Bicolore.VERT;
 	}
 	
+	@Override
 	/**
      * Cette fonction permet de calculer la vitesse a laquelle le vehicule doit se mettre lorsqu'il rencontre le semaphore
      * Si le feu est vert on renvoie vitesseActuelle et sinon 0
@@ -74,6 +75,26 @@ public class FeuBicolore extends Semaphore {
 	 */
 	public Bicolore getCouleur() {
 		return couleur;
+	}
+
+	@Override
+	public boolean estRouge() {
+		switch (this.couleur) {
+		case ROUGE:
+			return true;
+		default:
+			return false;
+		}
+	}
+
+	@Override
+	public int getDivisionVitesse() {
+		return 1;
+	}
+
+	@Override
+	public int getLimitationVitesse() {
+		return -1;
 	}
 
 }
