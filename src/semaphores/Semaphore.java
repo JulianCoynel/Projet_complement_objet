@@ -95,4 +95,6 @@ public abstract class Semaphore {
 	public boolean getSonSens() {
 		return sens;
 	}
+
+	public abstract boolean estRouge();
 }
