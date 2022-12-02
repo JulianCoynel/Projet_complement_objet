@@ -38,4 +38,14 @@ public class Route {
 		}
 		return 0;
 	}
+
+	public boolean feuRouge(boolean sens) {
+		for (Semaphore s : sesSemaphores) {
+			if (s.getSonSens() == sens) {
+				if (s.estRouge())
+					return true;
+			}
+		}
+		return false;
+	}
 }

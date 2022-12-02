@@ -73,6 +73,14 @@ public abstract class Semaphore {
 	}
 	
 	/**
+	 * Permet de retirer un capteur a la liste de capteurs relies au semaphore
+	 * @param c Le capteur a retirer
+	 */
+	public void removeCapteur(Capteur c) {
+		sesCapteurs.remove(c);
+	}
+	
+	/**
 	 * Permet de recuperer son segment de route
 	 * @return Son segment de route
 	 */
@@ -95,4 +103,10 @@ public abstract class Semaphore {
 	public boolean getSonSens() {
 		return sens;
 	}
+
+	/**
+	 * Permet de savoir si un feu est rouge
+	 * @return true si le feu est rouge, false sinon
+	 */
+	public abstract boolean estRouge();
 }

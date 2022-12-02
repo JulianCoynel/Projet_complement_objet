@@ -35,16 +35,20 @@ public abstract class Vehicule {
 		
 		//cas ou on arrive a une intersection => on tourne dans une direction aleatoire
 		if (borne >= sonSegmentDeRoute.getLongueur()) {
-			Jonction jonctionAtteinte = sonSegmentDeRoute.getJonction(sens);
-			Route routeChoisi = jonctionAtteinte.getRouteAleatoire();
-			
-			setVoie(routeChoisi, jonctionAtteinte.getSensSortant(routeChoisi));
+			if (sonSegmentDeRoute.feuRouge(sens)) {
+				borne = sonSegmentDeRoute.getLongueur()-1;
+			} else {
+				Jonction jonctionAtteinte = sonSegmentDeRoute.getJonction(sens);
+				Route routeChoisi = jonctionAtteinte.getRouteAleatoire();
+				
+				setVoie(routeChoisi, jonctionAtteinte.getSensSortant(routeChoisi));
+			}
 		}
 	}
 
 	private void setVoie(Route nouvelleRoute, boolean sensSurNouvelleRoute) {
+		borne = 0;
 		sonSegmentDeRoute = nouvelleRoute;
 		sens = sensSurNouvelleRoute;
-		borne = 0;
 	}
 }
