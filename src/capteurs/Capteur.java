@@ -43,6 +43,10 @@ public abstract class Capteur {
 	
 	public abstract ResultatCapteur getResultatCapteur(Route r);
 	
+	public Semaphore activeElement() {
+		return sonElement.apply(this);
+	}
+	
 	public void setSonSegment(Route s) {
 		sonSegment=s;
 	}
