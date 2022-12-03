@@ -27,7 +27,9 @@ public class CapteurPresence extends Capteur{
 				}
 				return RC;
 		}catch(ErreurResultatCapteurImpossible e) {
-			return null;
+			Set<ResultatCapteur> RC=new HashSet<ResultatCapteur>();
+			RC.add(new ResultatCapteur());
+			return RC;
 		}
 		
 	}
