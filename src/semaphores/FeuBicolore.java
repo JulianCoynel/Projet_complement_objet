@@ -74,14 +74,6 @@ public class FeuBicolore extends Semaphore {
 	}
 	
 	/**
-	 * Permet de changer la couleur d'un feu bicolore parmi ROUGE et VERT
-	 * @param b la nouvelle couleur du feu
-	 */
-	public void setCouleur(Bicolore b) {
-		couleur = b;
-	}
-	
-	/**
 	 * Permet de recuperer la couleur d'un feu
 	 * @return la couleur actuelle du feu
 	 */
