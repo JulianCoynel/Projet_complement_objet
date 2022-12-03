@@ -34,18 +34,6 @@ public class Route {
 		sesCapteurs = new HashSet<Capteur>();
 	}
 	
-	public int getLongueur() {
-		return longueur;
-	}
-	
-	public Jonction getJonction(boolean sens) {
-		if (sens == true) {
-			return jonctionSensTrue;
-		} else {
-			return jonctionSensFalse;
-		}
-	}
-	
 	/**
 	 * Permet d'ajouter une Jonction a une des extremites de la route pour laquelle il n'y a pas encore de jonction attribue.
 	 * @param j la Jonction a ajouter.
@@ -71,26 +59,6 @@ public class Route {
 	
 	public void addSemaphore(Semaphore semaphore) {
 		sesSemaphores.add(semaphore);
-	}
-	
-	/**
-	 * Calcule la vitesse effective d'un vehicule circulant sur cette route
-	 * @param sens le sens de circulation du vehicule
-	 * @param vitesseMaxVehicule la vitesse maximale que peu atteindre le vehicule
-	 * @return la vitesse effective du vehicule selon l'etat 
-	 */
-	public int getVitesse(boolean sens, int vitesseMaxVehicule) {
-		int v = vitesseMaxVehicule;
-		for (Semaphore s : sesSemaphores) {
-			if (s.getSonSens() == sens) {
-				int limitation = s.getLimitationVitesse();
-				if (limitation != -1) {
-					v = Math.min(v, limitation);
-				}
-				v = v / s.getDivisionVitesse();
-			}
-		}
-		return 0;
 	}
 	
 	public boolean feuRouge(boolean sens) {
@@ -139,5 +107,37 @@ public class Route {
 			}
 		}
 		return res;
+	}
+	
+	public int getLongueur() {
+		return longueur;
+	}
+	
+	public Jonction getJonction(boolean sens) {
+		if (sens == true) {
+			return jonctionSensTrue;
+		} else {
+			return jonctionSensFalse;
+		}
+	}
+	
+	/**
+	 * Calcule la vitesse effective d'un vehicule circulant sur cette route
+	 * @param sens le sens de circulation du vehicule
+	 * @param vitesseMaxVehicule la vitesse maximale que peu atteindre le vehicule
+	 * @return la vitesse effective du vehicule selon l'etat 
+	 */
+	public int getVitesse(boolean sens, int vitesseMaxVehicule) {
+		int v = vitesseMaxVehicule;
+		for (Semaphore s : sesSemaphores) {
+			if (s.getSonSens() == sens) {
+				int limitation = s.getLimitationVitesse();
+				if (limitation != -1) {
+					v = Math.min(v, limitation);
+				}
+				v = v / s.getDivisionVitesse();
+			}
+		}
+		return 0;
 	}
 }

@@ -51,22 +51,6 @@ public abstract class Semaphore {
 	}
 	
 	/**
-	 * Permet de changer le segment de route d'un semaphore
-	 * @param seg Son segment de route
-	 */
-	public void setSonSegment(Route seg) {
-		sonSegment = seg;
-	}
-	
-	/**
-	 * Permet de changer les capteurs d'un semaphore
-	 * @param cl Une liste de capteurs relies au semaphore
-	 */
-	public void setSesCapteurs(ArrayList<? extends Capteur> cl) {
-		sesCapteurs=new ArrayList<Capteur>(cl);
-	}
-	
-	/**
 	 * Permet d'ajouter un capteur a la liste de capteurs relies au semaphore
 	 * @param c Le capteur a ajouter
 	 */
@@ -83,6 +67,36 @@ public abstract class Semaphore {
 	}
 	
 	/**
+	 * Permet de recuperer son ArrayList de capteurs
+	 * @return sa liste de capteurs
+	 */
+	public ArrayList<Capteur> getSesCapteurs() {
+		return sesCapteurs;
+	}
+
+	/**
+	 * Permet de savoir si un feu est rouge
+	 * @return true si le feu est rouge, false sinon
+	 */
+	public abstract boolean estRouge();
+	
+	public abstract boolean estFeu();
+	
+	public abstract void passerAuRouge();
+	
+	public abstract void passerAuOrange();
+	
+	public abstract void passerAuVert();
+	
+	/**
+	 * Permet de changer le segment de route d'un semaphore
+	 * @param seg Son segment de route
+	 */
+	public void setSonSegment(Route seg) {
+		sonSegment = seg;
+	}
+	
+	/**
 	 * Permet de recuperer son segment de route
 	 * @return Son segment de route
 	 */
@@ -91,11 +105,11 @@ public abstract class Semaphore {
 	}
 	
 	/**
-	 * Permet de recuperer son ArrayList de capteurs
-	 * @return sa liste de capteurs
+	 * Permet de changer les capteurs d'un semaphore
+	 * @param cl Une liste de capteurs relies au semaphore
 	 */
-	public ArrayList<Capteur> getSesCapteurs() {
-		return sesCapteurs;
+	public void setSesCapteurs(ArrayList<? extends Capteur> cl) {
+		sesCapteurs=new ArrayList<Capteur>(cl);
 	}
 	
 	/**
@@ -105,22 +119,8 @@ public abstract class Semaphore {
 	public boolean getSonSens() {
 		return sens;
 	}
-
-	/**
-	 * Permet de savoir si un feu est rouge
-	 * @return true si le feu est rouge, false sinon
-	 */
-	public abstract boolean estRouge();
 	
 	public abstract int getDivisionVitesse();
 	
 	public abstract int getLimitationVitesse();
-	
-	public abstract boolean estFeu();
-	
-	public abstract void passerAuRouge();
-	
-	public abstract void passerAuOrange();
-	
-	public abstract void passerAuVert();
 }

@@ -27,6 +27,7 @@ public class Carrefour extends Jonction{
 		}
 		boolean sensEntrant = r.addJonction(this);
 		boolean sensSortant = !sensEntrant;
+		
 		if (r.feu(sensEntrant) != true) {
 			throw new ErreurConstruction("Tout carrefour est suppose etre regule par des feu de circulation");
 		}

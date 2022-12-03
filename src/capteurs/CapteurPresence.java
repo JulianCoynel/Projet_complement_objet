@@ -19,20 +19,17 @@ public class CapteurPresence extends Capteur{
 	@Override
 	public Set<ResultatCapteur> getResultatCapteur(Route r) {
 		try {
-				Set<Vehicule> V=resultatEstPossible(r);
-				super.setSesSemaphores(super.activeElement());
-				Set<ResultatCapteur> RC=new HashSet<ResultatCapteur>();
-				for(Vehicule v: V) {
-					RC.add(new ResultatCapteur(v.getID()));
-				}
-				return RC;
-		}catch(ErreurResultatCapteurImpossible e) {
+			Set<Vehicule> V=resultatEstPossible(r);
+			super.setSesSemaphores(super.activeElement());
+			Set<ResultatCapteur> RC=new HashSet<ResultatCapteur>();
+			for(Vehicule v: V) {
+				RC.add(new ResultatCapteur(v.getID()));
+			}
+			return RC;
+		} catch(ErreurResultatCapteurImpossible e) {
 			Set<ResultatCapteur> RC=new HashSet<ResultatCapteur>();
 			RC.add(new ResultatCapteur());
 			return RC;
 		}
-		
 	}
-
-
 }

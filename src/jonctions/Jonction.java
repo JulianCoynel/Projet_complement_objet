@@ -11,10 +11,6 @@ public abstract class Jonction {
 	protected Map<Route, Boolean> sesVoies;
 	
 	
-	public Set<Route> getSesRoutes () {
-		return sesVoies.keySet();
-	}
-
 	public Route getRouteAleatoire() {
 		Random random = new Random();
 
@@ -25,6 +21,10 @@ public abstract class Jonction {
 	
 	public boolean getSensSortant(Route r) {
 		return sesVoies.get(r);
+	}
+	
+	public Set<Route> getSesRoutes () {
+		return sesVoies.keySet();
 	}
 	
 	/**

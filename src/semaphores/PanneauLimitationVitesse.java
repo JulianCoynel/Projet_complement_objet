@@ -51,16 +51,7 @@ public class PanneauLimitationVitesse extends Semaphore {
 	public boolean estRouge() {
 		return false;
 	}
-
-	@Override
-	public int getDivisionVitesse() {
-		return 1;
-	}
-
-	@Override
-	public int getLimitationVitesse() {
-		return vitesseMax;
-	}
+	
 	@Override
 	public boolean estFeu() {
 		return false;
@@ -81,4 +72,13 @@ public class PanneauLimitationVitesse extends Semaphore {
 		return;
 	}
 
+	@Override
+	public int getDivisionVitesse() {
+		return 1;
+	}
+
+	@Override
+	public int getLimitationVitesse() {
+		return vitesseMax;
+	}
 }

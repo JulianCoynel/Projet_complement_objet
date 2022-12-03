@@ -27,19 +27,6 @@ public abstract class Vehicule {
 		setVoie(r,s);
 	}
 	
-	
-	public Route getRoute() {
-		return saRoute;
-	}
-	
-	public int getID() {
-		return id;
-	}
-
-	public int getVitesse() {
-		return getRoute().getVitesse(sens, vitesseMax);
-	}
-	
 	public void avance() {
 		int v = getVitesse();
 		borne += v;
@@ -60,8 +47,30 @@ public abstract class Vehicule {
 			}
 		}
 	}
-
-	private void setVoie(Route nouvelleRoute, boolean sensSurNouvelleRoute) {
+	
+	public boolean equals(Object o) {
+		if (o == null) { return false; }
+		if (o == this) { return true; }
+		if (o instanceof Vehicule) {
+			Vehicule v =  (Vehicule) o;
+			return v.id == id;
+		}
+		else { return false; }
+	 }
+	 
+	 public boolean estIci(Route route, boolean sens, int emplacement) {
+		if (route == null) { return false; }
+		if (saRoute.equals(route)) {
+			if (borne >= emplacement) { //le vehicule a atteint la borne
+				if (emplacement > borne - longueur) { //le vehicule n'a pas depace la borne
+					return true;
+				}
+			}
+		}
+		return false;
+	 }
+	 
+	 private void setVoie(Route nouvelleRoute, boolean sensSurNouvelleRoute) {
 		borne = 0;
 		setRoute(nouvelleRoute);
 		sens = sensSurNouvelleRoute;
@@ -75,25 +84,15 @@ public abstract class Vehicule {
 		r.addVehicule(this);
 	}
 	
-	 public boolean equals(Object o) {
-		 if (o == null) { return false; }
-		 if (o == this) { return true; }
-		 if (o instanceof Vehicule) {
-			 Vehicule v =  (Vehicule) o;
-			 return v.id == id;
-		 }
-		 else { return false; }
-	 }
-	 
-	 public boolean estIci(Route route, boolean sens, int emplacement) {
-		 if (route == null) { return false; }
-		 if (saRoute.equals(route)) {
-			 if (borne >= emplacement) { //le vehicule a atteint la borne
-				 if (emplacement > borne - longueur) { //le vehicule n'a pas depace la borne
-					 return true;
-				 }
-			 }
-		 }
-		 return false;
-	 }
+	public Route getRoute() {
+		return saRoute;
+	}
+	
+	public int getID() {
+		return id;
+	}
+
+	public int getVitesse() {
+		return getRoute().getVitesse(sens, vitesseMax);
+	}
 }

@@ -42,22 +42,6 @@ public class FeuBicolore extends Semaphore {
 		super(segment, capteur, sens);
 		this.couleur = Bicolore.VERT;
 	}
-	
-	/**
-	 * Permet de changer la couleur d'un feu bicolore parmi ROUGE et VERT
-	 * @param b la nouvelle couleur du feu
-	 */
-	public void setCouleur(Bicolore b) {
-		couleur = b;
-	}
-	
-	/**
-	 * Permet de recuperer la couleur d'un feu
-	 * @return la couleur actuelle du feu
-	 */
-	public Bicolore getCouleur() {
-		return couleur;
-	}
 
 	@Override
 	public boolean estRouge() {
@@ -67,16 +51,6 @@ public class FeuBicolore extends Semaphore {
 		default:
 			return false;
 		}
-	}
-
-	@Override
-	public int getDivisionVitesse() {
-		return 1;
-	}
-
-	@Override
-	public int getLimitationVitesse() {
-		return -1;
 	}
 
 	@Override
@@ -98,5 +72,30 @@ public class FeuBicolore extends Semaphore {
 	public void passerAuVert() {
 		this.couleur = Bicolore.VERT;
 	}
+	
+	/**
+	 * Permet de changer la couleur d'un feu bicolore parmi ROUGE et VERT
+	 * @param b la nouvelle couleur du feu
+	 */
+	public void setCouleur(Bicolore b) {
+		couleur = b;
+	}
+	
+	/**
+	 * Permet de recuperer la couleur d'un feu
+	 * @return la couleur actuelle du feu
+	 */
+	public Bicolore getCouleur() {
+		return couleur;
+	}
 
+	@Override
+	public int getDivisionVitesse() {
+		return 1;
+	}
+
+	@Override
+	public int getLimitationVitesse() {
+		return -1;
+	}
 }

@@ -43,14 +43,6 @@ public class FeuTricolore extends Semaphore {
 		this.couleur = Tricolore.VERT;
 	}
 	
-	/**
-	 * Permet de recuperer la couleur d'un feu
-	 * @return la couleur actuelle du feu
-	 */
-	public Tricolore getCouleur() {
-		return couleur;
-	}
-	
 	@Override
 	public boolean estRouge() {
 		switch (this.couleur) {
@@ -59,21 +51,6 @@ public class FeuTricolore extends Semaphore {
 		default:
 			return false;
 		}
-	}
-
-	@Override
-	public int getDivisionVitesse() {
-		switch (this.couleur) {
-		case ORANGE:
-			return 2;
-		default:
-			return 1;
-		}
-	}
-
-	@Override
-	public int getLimitationVitesse() {
-		return -1;
 	}
 	
 	@Override
@@ -94,6 +71,29 @@ public class FeuTricolore extends Semaphore {
 	@Override
 	public void passerAuVert() {
 		this.couleur = Tricolore.VERT;
+	}
+	
+	/**
+	 * Permet de recuperer la couleur d'un feu
+	 * @return la couleur actuelle du feu
+	 */
+	public Tricolore getCouleur() {
+		return couleur;
+	}
+
+	@Override
+	public int getDivisionVitesse() {
+		switch (this.couleur) {
+		case ORANGE:
+			return 2;
+		default:
+			return 1;
+		}
+	}
+
+	@Override
+	public int getLimitationVitesse() {
+		return -1;
 	}
 
 }

@@ -47,11 +47,15 @@ public abstract class Capteur {
 		throw new ErreurResultatCapteurImpossible("mauvais segment");
 	}
 	
-	public abstract Set<ResultatCapteur> getResultatCapteur(Route r);
-	
 	public void actionnerElement() {
 		sonElement.actionner();
 	}
+	
+	public void addSemaphore(Semaphore s) {
+		sesSemaphores.add(s);
+	}
+	
+	public abstract Set<ResultatCapteur> getResultatCapteur(Route r);
 	
 	public void setSonSegment(Route s) {
 		sonSegment=s;
@@ -59,10 +63,6 @@ public abstract class Capteur {
 	
 	public void setSesSemaphores(ArrayList<? extends Semaphore> sl) {
 		sesSemaphores=new ArrayList<Semaphore>(sl);
-	}
-	
-	public void addSemaphore(Semaphore s) {
-		sesSemaphores.add(s);
 	}
 	
 	public void setSonElement(ElementDeRegulation e) {
