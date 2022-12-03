@@ -31,26 +31,14 @@ public class ElementDeRegulation implements Function<Capteur,ArrayList<Semaphore
 	
 	private ArrayList<Semaphore> toutRouge(ArrayList<Semaphore> semaphores) {
 		for (Semaphore s : semaphores) {
-			if (s.estFeu()) {
-				if ( s instanceof FeuBicolore) {
-					FeuBicolore fb= (FeuBicolore) s;
-					fb.setCouleur(Bicolore.ROUGE);
-				}
-				else {
-					FeuTricolore ft = (FeuTricolore) s;
-					ft.setCouleur(Tricolore.ROUGE);
-				}
-			}
+			s.passerAuRouge();
 		}
 		return semaphores;
 	}
 	
 	private ArrayList<Semaphore> toutOrange(ArrayList<Semaphore> semaphores) {
 		for (Semaphore s : semaphores) {
-			if ( s instanceof FeuTricolore) {
-				FeuTricolore ft = (FeuTricolore) s;
-				ft.setCouleur(Tricolore.ORANGE);
-			}
+			s.passerAuOrange();
 		}
 		return semaphores;
 	}
