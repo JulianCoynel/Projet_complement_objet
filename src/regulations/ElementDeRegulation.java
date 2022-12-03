@@ -44,6 +44,16 @@ public class ElementDeRegulation implements Function<Capteur,ArrayList<Semaphore
 		}
 		return semaphores;
 	}
+	
+	private ArrayList<Semaphore> toutOrange(ArrayList<Semaphore> semaphores) {
+		for (Semaphore s : semaphores) {
+			if ( s instanceof FeuTricolore) {
+				FeuTricolore ft = (FeuTricolore) s;
+				ft.setCouleur(Tricolore.ORANGE);
+			}
+		}
+		return semaphores;
+	}
 
 	@Override
 	public ArrayList<Semaphore> apply(Capteur c) {
@@ -54,6 +64,9 @@ public class ElementDeRegulation implements Function<Capteur,ArrayList<Semaphore
 				
 			case "toutRouge":
 				return this.toutRouge(c.getSesSemaphores());
+				
+			case "toutOrange":
+				return this.toutOrange(c.getSesSemaphores());
 				
 			default :
 				return this.id(c.getSesSemaphores());
