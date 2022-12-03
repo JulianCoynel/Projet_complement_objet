@@ -1,10 +1,13 @@
 package capteurs;
 
 import java.util.ArrayList;
+import java.util.Set;
 
+import exception.ErreurResultatCapteurImpossible;
 import regulations.ElementDeRegulation;
 import routes.*;
 import semaphores.*;
+import vehicules.Vehicule;
 
 public abstract class Capteur {
 	private Route sonSegment;
@@ -37,11 +40,14 @@ public abstract class Capteur {
 		this(segment,semaphore,element,sens,segment.getLongueur()/2);
 	}
 	
-	boolean resultatEstPossible(Route r) {
-		return r.equals(sonSegment);
+	Set<Vehicule> resultatEstPossible(Route r) throws ErreurResultatCapteurImpossible {
+		if(r.equals(sonSegment)) {
+			return r.getVehicules(sonSens, saPosition);
+		}
+		throw new ErreurResultatCapteurImpossible("mauvais segment");
 	}
 	
-	public abstract ResultatCapteur getResultatCapteur(Route r);
+	public abstract Set<ResultatCapteur> getResultatCapteur(Route r);
 	
 	public ArrayList<Semaphore> activeElement() {
 		return sonElement.apply(this);

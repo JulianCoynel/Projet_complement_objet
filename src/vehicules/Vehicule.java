@@ -31,6 +31,10 @@ public abstract class Vehicule {
 	public Route getRoute() {
 		return saRoute;
 	}
+	
+	public int getID() {
+		return id;
+	}
 
 	public int getVitesse() {
 		return getRoute().getVitesse(sens, vitesseMax);

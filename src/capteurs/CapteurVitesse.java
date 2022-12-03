@@ -1,10 +1,14 @@
 package capteurs;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
+import exception.ErreurResultatCapteurImpossible;
 import regulations.ElementDeRegulation;
 import routes.Route;
 import semaphores.Semaphore;
+import vehicules.Vehicule;
 
 public class CapteurVitesse extends Capteur {
 
@@ -13,11 +17,18 @@ public class CapteurVitesse extends Capteur {
 	}
 
 	@Override
-	public ResultatCapteur getResultatCapteur(Route r) {
-		if (resultatEstPossible(r)) {
-			return new ResultatCapteur();
-		}
+	public Set<ResultatCapteur> getResultatCapteur(Route r) {
+		try {
+			Set<Vehicule> V=resultatEstPossible(r);
+			super.setSesSemaphores(super.activeElement());
+			Set<ResultatCapteur> RC=new HashSet<ResultatCapteur>();
+			for(Vehicule v: V) {
+				RC.add(new ResultatCapteur(v.getID(),v.getVitesse()));
+			}
+			return RC;
+	}catch(ErreurResultatCapteurImpossible e) {
 		return null;
+	}
 	}
 
 
