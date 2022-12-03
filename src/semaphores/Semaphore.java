@@ -51,13 +51,6 @@ public abstract class Semaphore {
 	}
 	
 	/**
-     * Cette fonction permet de calculer la vitesse a laquelle le vehicule doit se mettre lorsqu'il rencontre le semaphore
-     * @param vitesseActuelle la vitesse actuelle du vehicule
-     * @return la nouvelle vitesse qui doit etre prise
-     */
-	public abstract int contrainteVitesseSemaphore(int vitesseActuelle);
-	
-	/**
 	 * Permet de changer le segment de route d'un semaphore
 	 * @param seg Son segment de route
 	 */
@@ -124,4 +117,10 @@ public abstract class Semaphore {
 	public abstract int getLimitationVitesse();
 	
 	public abstract boolean estFeu();
+	
+	public abstract void passerAuRouge();
+	
+	public abstract void passerAuOrange();
+	
+	public abstract void passerAuVert();
 }

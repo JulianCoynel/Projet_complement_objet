@@ -43,34 +43,6 @@ public class FeuTricolore extends Semaphore {
 		this.couleur = Tricolore.VERT;
 	}
 	
-	@Override
-	/**
-     * Cette fonction permet de calculer la vitesse a laquelle le vehicule doit se mettre lorsqu'il rencontre le s�maphore
-     * Si le feu est vert on renvoie vitesseActuelle, sinon s'il est orange vitesseActuelle/2 et sinon 0
-     * @param vitesseActuelle la vitesse actuelle du vehicule
-     * @return la nouvelle vitesse qui doit etre prise
-     */
-	public int contrainteVitesseSemaphore(int vitesseActuelle) {
-		int res = 0;
-		switch (this.couleur) {
-			case VERT:
-				res = vitesseActuelle;
-			case ORANGE:
-				res = vitesseActuelle/2;
-			case ROUGE:
-				res = 0;
-		}
-		return res;
-	}
-	
-	/**
-	 * Permet de changer la couleur d'un feu tricolore parmi ROUGE, ORANGE et VERT
-	 * @param c la nouvelle couleur du feu
-	 */
-	public void setCouleur(Tricolore c) {
-		couleur = c;
-	}
-	
 	/**
 	 * Permet de recuperer la couleur d'un feu
 	 * @return la couleur actuelle du feu
@@ -107,6 +79,21 @@ public class FeuTricolore extends Semaphore {
 	@Override
 	public boolean estFeu() {
 		return true;
+	}
+
+	@Override
+	public void passerAuRouge() {
+		this.couleur = Tricolore.ROUGE;
+	}
+
+	@Override
+	public void passerAuOrange() {
+		this.couleur = Tricolore.ORANGE;
+	}
+
+	@Override
+	public void passerAuVert() {
+		this.couleur = Tricolore.VERT;
 	}
 
 }
