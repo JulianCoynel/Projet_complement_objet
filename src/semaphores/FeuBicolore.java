@@ -97,4 +97,9 @@ public class FeuBicolore extends Semaphore {
 		return -1;
 	}
 
+	@Override
+	public boolean estFeu() {
+		return true;
+	}
+
 }

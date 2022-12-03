@@ -70,5 +70,9 @@ public class PanneauLimitationVitesse extends Semaphore {
 	public int getLimitationVitesse() {
 		return vitesseMax;
 	}
+	@Override
+	public boolean estFeu() {
+		return false;
+	}
 
 }

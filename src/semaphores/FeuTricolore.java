@@ -103,5 +103,10 @@ public class FeuTricolore extends Semaphore {
 	public int getLimitationVitesse() {
 		return -1;
 	}
+	
+	@Override
+	public boolean estFeu() {
+		return true;
+	}
 
 }
