@@ -16,7 +16,7 @@ public class FeuBicolore extends Semaphore {
 	 * Classe enumeree definissant les deux couleurs possibles d'un feu bicolore
 	 * @author Romain BAUDOUIN
 	 */
-	enum Bicolore {ROUGE, VERT}
+	public enum Bicolore {ROUGE, VERT}
 	
 	/** La couleur du feu */
 	private Bicolore couleur;
