@@ -42,6 +42,15 @@ public abstract class Semaphore {
 	}
 	
 	/**
+	 * Constructeur d'un semaphore sans capteurs
+	 * @param segment Son segment de route
+	 * @param sens Le sens de circulation auquel il appartient
+	 */
+	public Semaphore(Route segment,boolean sens) {
+		this(segment,new ArrayList<Capteur>(),sens);
+	}
+	
+	/**
      * Cette fonction permet de calculer la vitesse a laquelle le vehicule doit se mettre lorsqu'il rencontre le semaphore
      * @param vitesseActuelle la vitesse actuelle du vehicule
      * @return la nouvelle vitesse qui doit etre prise
