@@ -10,35 +10,46 @@ public abstract class Vehicule {
 	private final int longueur;
 	private final int vitesseMax;
 	
-	private Route sonSegmentDeRoute;
+	private Route saRoute;
 	private boolean sens;
 	private int borne;
 	
 	
 	public Vehicule (int l, int v, Route r, boolean s) {
+		if (l <= 0) {
+			throw new IllegalArgumentException("Un vehicule doit avoir une longeur strictement positive");
+		}
 		nextId++;
 		id = nextId;
 		longueur = l;
 		vitesseMax = v;
 		
-		sonSegmentDeRoute = r;
-		sens = s;
+		setVoie(r,s);
 	}
 	
-	private int getVitesse() {
-		return sonSegmentDeRoute.getVitesse(sens, vitesseMax);
+	
+	public Route getRoute() {
+		return saRoute;
+	}
+
+	public int getVitesse() {
+		return getRoute().getVitesse(sens, vitesseMax);
 	}
 	
-	public void avance () {
+	public void avance() {
 		int v = getVitesse();
 		borne += v;
 		
-		//cas ou on arrive a une intersection => on tourne dans une direction aleatoire
-		if (borne >= sonSegmentDeRoute.getLongueur()) {
-			if (sonSegmentDeRoute.feuRouge(sens)) {
-				borne = sonSegmentDeRoute.getLongueur()-1;
-			} else {
-				Jonction jonctionAtteinte = sonSegmentDeRoute.getJonction(sens);
+		Route r = getRoute();
+		//Cas ou on arrive a une intersection
+		if (borne >= r.getLongueur()) {
+			//On attend au feu rouge
+			if (r.feuRouge(sens)) {
+				borne = r.getLongueur()-1;
+			}
+			//On tourne dans une direction aleatoire
+			else {
+				Jonction jonctionAtteinte = r.getJonction(sens);
 				Route routeChoisi = jonctionAtteinte.getRouteAleatoire();
 				
 				setVoie(routeChoisi, jonctionAtteinte.getSensSortant(routeChoisi));
@@ -48,7 +59,25 @@ public abstract class Vehicule {
 
 	private void setVoie(Route nouvelleRoute, boolean sensSurNouvelleRoute) {
 		borne = 0;
-		sonSegmentDeRoute = nouvelleRoute;
+		setRoute(nouvelleRoute);
 		sens = sensSurNouvelleRoute;
 	}
+	
+	private void setRoute(Route r) {
+		if (r == null) {
+			throw new IllegalArgumentException("Le vehicule ne peut pas etre sur une Route 'null'");
+		}
+		saRoute = r;
+		r.addVehicule(this);
+	}
+	
+	 public boolean equals(Object o) {
+    	if (o == null) { return false; }
+    	if (o == this) { return true; }
+    	if (o instanceof Vehicule) {
+    		Vehicule v =  (Vehicule) o;
+    		return v.id == id;
+    	}
+    	else { return false; }
+    }
 }
