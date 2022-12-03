@@ -13,10 +13,15 @@ public class CapteurVitesse extends Capteur {
 	}
 
 	@Override
-	public boolean estActif() {
-		// TODO Auto-generated method stub
-		return false;
+	public ResultatCapteur getResultatCapteur(Route r) {
+		if (resultatEstPossible(r)) {
+			return new ResultatCapteur();
+		}
+		return null;
 	}
+
+
+	
 	
 
 }
