@@ -18,9 +18,6 @@ public class CapteurPresence extends Capteur{
 			return new ResultatCapteur();
 		}
 		return null;
-	public boolean estActif() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 

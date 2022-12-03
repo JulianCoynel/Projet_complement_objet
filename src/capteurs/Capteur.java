@@ -36,7 +36,6 @@ public abstract class Capteur {
 	public Capteur(Route segment,Semaphore semaphore,ElementDeRegulation element,boolean sens) {
 		this(segment,semaphore,element,sens,segment.getLongueur()/2);
 	}
-	public abstract boolean estActif();
 	
 	boolean resultatEstPossible(Route r) {
 		return r.equals(sonSegment);
