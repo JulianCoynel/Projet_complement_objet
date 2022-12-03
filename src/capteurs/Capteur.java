@@ -25,7 +25,7 @@ public abstract class Capteur {
 		addSemaphore(semaphore);
 	}
 	
-	public abstract boolean est_actif();
+	public abstract boolean estActif();
 	
 	
 	public void setSonSegment(Route s) {

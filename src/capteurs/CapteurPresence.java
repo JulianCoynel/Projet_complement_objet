@@ -13,7 +13,7 @@ public class CapteurPresence extends Capteur{
 	}
 
 	@Override
-	public boolean est_actif() {
+	public boolean estActif() {
 		// TODO Auto-generated method stub
 		return false;
 	}
