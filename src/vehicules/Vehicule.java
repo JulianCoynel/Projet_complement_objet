@@ -72,12 +72,24 @@ public abstract class Vehicule {
 	}
 	
 	 public boolean equals(Object o) {
-    	if (o == null) { return false; }
-    	if (o == this) { return true; }
-    	if (o instanceof Vehicule) {
-    		Vehicule v =  (Vehicule) o;
-    		return v.id == id;
-    	}
-    	else { return false; }
-    }
+		 if (o == null) { return false; }
+		 if (o == this) { return true; }
+		 if (o instanceof Vehicule) {
+			 Vehicule v =  (Vehicule) o;
+			 return v.id == id;
+		 }
+		 else { return false; }
+	 }
+	 
+	 public boolean estIci(Route route, boolean sens, int emplacement) {
+		 if (route == null) { return false; }
+		 if (saRoute.equals(route)) {
+			 if (borne >= emplacement) { //le vehicule a atteint la borne
+				 if (emplacement > borne - longueur) { //le vehicule n'a pas depace la borne
+					 return true;
+				 }
+			 }
+		 }
+		 return false;
+	 }
 }

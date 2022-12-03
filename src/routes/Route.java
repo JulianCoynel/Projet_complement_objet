@@ -1,8 +1,10 @@
 package routes;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
+import capteurs.Capteur;
 import exception.ErreurConstruction;
 import jonctions.Jonction;
 import semaphores.Semaphore;
@@ -12,8 +14,12 @@ public class Route {
 	private final int  longueur;
 	private Jonction jonctionSensTrue;
 	private Jonction jonctionSensFalse;
+	/** Ensembles des Semaphore de la route **/
 	private Set<Semaphore> sesSemaphores;
+	/** Ensembles des Vehicule de la route **/
 	private Set<Vehicule> sesVehicules;
+	/** Ensembles des Capteur de la route **/
+	private Set<Capteur> sesCapteurs;
 	
 	/**
 	 * Constructeur d'une route 2 jonctions doivent être connecte a postiori pour que la route soit valide.
@@ -25,6 +31,7 @@ public class Route {
 		jonctionSensFalse = null;
 		sesSemaphores = new HashSet<Semaphore>();
 		sesVehicules = new HashSet<Vehicule>();
+		sesCapteurs = new HashSet<Capteur>();
 	}
 	
 	public int getLongueur() {
@@ -58,6 +65,12 @@ public class Route {
 		}
 	}
 	
+	/**
+	 * Calcule la vitesse effective d'un vehicule circulant sur cette route
+	 * @param sens le sens de circulation du vehicule
+	 * @param vitesseMaxVehicule la vitesse maximale que peu atteindre le vehicule
+	 * @return la vitesse effective du vehicule selon l'etat 
+	 */
 	public int getVitesse(boolean sens, int vitesseMaxVehicule) {
 		int v = vitesseMaxVehicule;
 		for (Semaphore s : sesSemaphores) {
@@ -101,5 +114,21 @@ public class Route {
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * Permet d'obtenir les vehicules visible depuis une position precise de cette route.
+	 * @param sens le sens de circulation observe.
+	 * @param borne le troncon observe dependant du sens.
+	 * @return L'ensemble des vehicules visible a cette position.
+	 */
+	public Set<Vehicule> getVehicules (boolean sens, int borne) {
+		Set<Vehicule> res = new HashSet<Vehicule>();
+		for (Vehicule v : sesVehicules) {
+			if (v.estIci(this, sens, borne)) {
+				res.add(v);
+			}
+		}
+		return res;
 	}
 }
