@@ -19,4 +19,17 @@ public class Carrefour extends Jonction{
 			addRoute(r);
 		}
 	}
+	
+	@Override
+	protected void addRoute(Route r) throws ErreurConstruction {
+		if (r == null) {
+			throw new ErreurConstruction("Une jonction ne peut pas etre reliee a une Route null");
+		}
+		boolean sensEntrant = r.addJonction(this);
+		boolean sensSortant = !sensEntrant;
+		if (r.feu(sensEntrant) != true) {
+			throw new ErreurConstruction("Tout carrefour est suppose etre regule par des feu de circulation");
+		}
+		sesVoies.put(r, sensSortant);
+	}
 }

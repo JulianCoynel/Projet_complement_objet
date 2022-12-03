@@ -64,6 +64,14 @@ public class Route {
 			throw new ErreurConstruction("Une route ne peu avoir que deux jonctions");
 		}
 	}
+
+	public void addVehicule(Vehicule vehicule) {
+		sesVehicules.add(vehicule);
+	}
+	
+	public void addSemaphore(Semaphore semaphore) {
+		sesSemaphores.add(semaphore);
+	}
 	
 	/**
 	 * Calcule la vitesse effective d'un vehicule circulant sur cette route
@@ -94,13 +102,14 @@ public class Route {
 		}
 		return false;
 	}
-
-	public void addVehicule(Vehicule vehicule) {
-		sesVehicules.add(vehicule);
-	}
 	
-	public void addSemaphore(Semaphore semaphore) {
-		sesSemaphores.add(semaphore);
+	public boolean feu(boolean sens) {
+		for (Semaphore s : sesSemaphores) {
+			if (s.getSonSens() == sens) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	/**
