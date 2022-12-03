@@ -11,22 +11,37 @@ public abstract class Capteur {
 	private ArrayList<Semaphore> sesSemaphores;
 	private ElementDeRegulation sonElement;
 	private boolean sonSens;
+	private int saPosition;
 	
 	
-	public Capteur(Route segment,ArrayList<Semaphore> semaphores,ElementDeRegulation element,boolean sens) {
+	public Capteur(Route segment,ArrayList<Semaphore> semaphores,ElementDeRegulation element,boolean sens,int position) {
 		sonSegment=segment;
 		setSesSemaphores(semaphores);
 		sonElement=element;
 		sonSens=sens;
+		saPosition=position;
 	}
 	
-	public Capteur(Route segment,Semaphore semaphore,ElementDeRegulation element,boolean sens) {
-		this(segment,new ArrayList<Semaphore>(),element,sens);
+	/*On met de base le capteur au milieu de la route*/
+	public Capteur(Route segment,ArrayList<Semaphore> semaphores,ElementDeRegulation element,boolean sens) {
+		this(segment,semaphores,element,sens,segment.getLongueur()/2);
+	}
+	
+	public Capteur(Route segment,Semaphore semaphore,ElementDeRegulation element,boolean sens,int position) {
+		this(segment,new ArrayList<Semaphore>(),element,sens,position);
 		addSemaphore(semaphore);
 	}
 	
-	public abstract boolean est_actif();
+	/*On met de base le capteur au milieu de la route*/
+	public Capteur(Route segment,Semaphore semaphore,ElementDeRegulation element,boolean sens) {
+		this(segment,semaphore,element,sens,segment.getLongueur()/2);
+	}
 	
+	boolean resultatEstPossible(Route r) {
+		return r.equals(sonSegment);
+	}
+	
+	public abstract ResultatCapteur getResultatCapteur(Route r);
 	
 	public void setSonSegment(Route s) {
 		sonSegment=s;
