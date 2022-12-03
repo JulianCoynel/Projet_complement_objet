@@ -113,4 +113,6 @@ public abstract class Semaphore {
 	public abstract int getDivisionVitesse();
 	
 	public abstract int getLimitationVitesse();
+	
+	public abstract boolean estFeu();
 }
