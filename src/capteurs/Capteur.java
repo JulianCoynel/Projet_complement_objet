@@ -49,8 +49,8 @@ public abstract class Capteur {
 	
 	public abstract Set<ResultatCapteur> getResultatCapteur(Route r);
 	
-	public ArrayList<Semaphore> activeElement() {
-		return sonElement.apply(this);
+	public void actionnerElement() {
+		sonElement.actionner();
 	}
 	
 	public void setSonSegment(Route s) {
