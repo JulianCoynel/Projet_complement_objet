@@ -43,7 +43,7 @@ public abstract class Capteur {
 	
 	public abstract ResultatCapteur getResultatCapteur(Route r);
 	
-	public Semaphore activeElement() {
+	public ArrayList<Semaphore> activeElement() {
 		return sonElement.apply(this);
 	}
 	

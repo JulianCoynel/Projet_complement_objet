@@ -16,7 +16,7 @@ public class FeuTricolore extends Semaphore {
 	 * @author Romain BAUDOUIN
 	 *
 	 */
-	enum Tricolore {ROUGE, ORANGE, VERT}
+	public enum Tricolore {ROUGE, ORANGE, VERT}
 	
 	/** La couleur du feu */
 	private Tricolore couleur;
