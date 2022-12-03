@@ -18,6 +18,9 @@ public class CapteurVitesse extends Capteur {
 			return new ResultatCapteur();
 		}
 		return null;
+	public boolean estActif() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	
