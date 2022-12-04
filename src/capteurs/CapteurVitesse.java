@@ -16,6 +16,10 @@ public class CapteurVitesse extends Capteur {
 		super(segment, semaphores, element, sens);
 	}
 
+	public CapteurVitesse(Route segment, ArrayList<Semaphore> semaphores, ElementDeRegulation element,boolean sens,int position) {
+		super(segment, semaphores, element, sens,position);
+	}
+	
 	@Override
 	public Set<ResultatCapteur> getResultatCapteur(Route r) {
 		try {

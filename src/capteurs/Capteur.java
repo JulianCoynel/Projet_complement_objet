@@ -22,7 +22,12 @@ public abstract class Capteur {
 		setSesSemaphores(semaphores);
 		sonElement=element;
 		sonSens=sens;
-		saPosition=position;
+		if(position<=segment.getLongueur()) {
+			saPosition=position;
+		}
+		else {
+			saPosition=segment.getLongueur();
+		}
 	}
 	
 	/*On met de base le capteur au milieu de la route*/

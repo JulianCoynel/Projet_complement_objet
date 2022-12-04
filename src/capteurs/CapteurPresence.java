@@ -15,6 +15,10 @@ public class CapteurPresence extends Capteur{
 	public CapteurPresence(Route segment, ArrayList<Semaphore> semaphores, ElementDeRegulation element, boolean sens) {
 		super(segment, semaphores, element, sens);
 	}
+	
+	public CapteurPresence(Route segment, ArrayList<Semaphore> semaphores, ElementDeRegulation element, boolean sens,int position) {
+		super(segment, semaphores, element, sens,position);
+	}
 
 	@Override
 	public Set<ResultatCapteur> getResultatCapteur(Route r) {
