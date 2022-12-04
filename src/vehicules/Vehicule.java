@@ -61,10 +61,12 @@ public abstract class Vehicule {
 		if (borne >= r.getLongueur()) {
 			//On attend au feu rouge
 			if (r.feuRouge(sens)) {
+				System.out.println("rouge");
 				borne = r.getLongueur()-1;
 			}
 			//On tourne dans une direction aleatoire
 			else {
+				System.out.println("vert/orange");
 				Jonction jonctionAtteinte = r.getJonction(sens);
 				Route routeChoisi = jonctionAtteinte.getRouteAleatoire();
 				

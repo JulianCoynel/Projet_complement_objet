@@ -31,15 +31,15 @@ public class Appli {
 	
 	public static void main(String[] args) throws ErreurConstruction {
 		// creer les routes :
-		R1 = new Route(100);
-		R2 = new Route(80);
-		R3 = new Route(90);
-		R4 = new Route(150);
-		R5 = new Route(110);
-		R6 = new Route(130);
-		R7 = new Route(50);
-		R8 = new Route(30);
-		R9 = new Route(60);
+		R1 = new Route(101);
+		R2 = new Route(82);
+		R3 = new Route(93);
+		R4 = new Route(54);
+		R5 = new Route(115);
+		R6 = new Route(136);
+		R7 = new Route(57);
+		R8 = new Route(88);
+		R9 = new Route(69);
 		listeRoute = new HashSet<Route>();
 		listeRoute.add(R1);
 		listeRoute.add(R2);
@@ -111,7 +111,7 @@ public class Appli {
 		V2 = new Voiture(13,R5,false);
 		V3 = new Voiture(6,R7,true);
 		V4 = new Voiture(10,R2,false);
-		V5 = new Voiture(2,R4,true);
+		V5 = new Voiture(5,R4,true);
 		listeVehicule = new HashSet<Vehicule>(Arrays.asList(V1,V2,V3,V4,V5));
 		
 		//Creation des elements de regulations
@@ -155,7 +155,7 @@ public class Appli {
 			System.out.println();
 
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

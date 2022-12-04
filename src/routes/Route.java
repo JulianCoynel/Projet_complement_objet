@@ -97,13 +97,18 @@ public class Route {
 	 * @return true si l'un des feux decris est ROUGE, false si il n'y a pas de feu ou qu'aucun n'est ROUGE
 	 */
 	public boolean feuRouge(boolean sens) {
+		boolean res = false;
 		for (Semaphore s : sesSemaphores) {
 			if (s.getSonSens() == sens) {
-				if (s.estRouge())
-					return true;
+				if (s.estRouge()) {
+					System.out.println("-> rouge (l=" + longueur + ")");
+					res = true;
+				} else {
+					System.out.println("-> vert/orange (l=" + longueur + ")");
+				}
 			}
 		}
-		return false;
+		return res;
 	}
 	
 	/**
