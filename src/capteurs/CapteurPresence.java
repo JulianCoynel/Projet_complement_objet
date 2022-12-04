@@ -20,7 +20,7 @@ public class CapteurPresence extends Capteur{
 	public Set<ResultatCapteur> getResultatCapteur(Route r) {
 		try {
 			Set<Vehicule> V=resultatEstPossible(r);
-			super.setSesSemaphores(super.activeElement());
+			super.actionnerElement();
 			Set<ResultatCapteur> RC=new HashSet<ResultatCapteur>();
 			for(Vehicule v: V) {
 				RC.add(new ResultatCapteur(v.getID()));

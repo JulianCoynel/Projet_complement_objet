@@ -31,14 +31,8 @@ public class FeuBicolore extends Semaphore {
 		this.couleur = Bicolore.VERT;
 	}
 	
-	/**
-	 * Constructeur d'un feu bicolore avec un seul capteur, on initialise le feu a VERT
-	 * @param segment Son segment de route
-	 * @param capteur Un capteur que l'on souhaite relier au semaphore a sa creation
-	 * @param sens Le sens de circulation auquel il appartient
-	 */
-	public FeuBicolore(Route segment,Capteur capteur,boolean sens) {
-		super(segment, capteur, sens);
+	public FeuBicolore(Route segment,boolean sens) {
+		super(segment, sens);
 		this.couleur = Bicolore.VERT;
 	}
 

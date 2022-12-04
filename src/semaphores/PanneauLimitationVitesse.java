@@ -26,15 +26,8 @@ public class PanneauLimitationVitesse extends Semaphore {
 		this.vitesseMax = v;
 	}
 	
-	/**
-	 * Constructeur d'un panneau de limitation de vitesse, avec un seul capteur
-	 * @param segment Son segment de route
-	 * @param capteurs Les capteurs qui lui sont relies
-	 * @param sens Le sens de circulation auquel il appartient
-	 * @param v La vitesse max indiquee par le panneau
-	 */
-	public PanneauLimitationVitesse(Route segment,Capteur capteur,boolean sens,int v) {
-		super(segment, capteur, sens);
+	public PanneauLimitationVitesse(Route segment,boolean sens,int v) {
+		super(segment, sens);
 		this.vitesseMax = v;
 	}
 	

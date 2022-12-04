@@ -27,17 +27,7 @@ public abstract class Semaphore {
 		sonSegment = segment;
 		sesCapteurs = capteurs;
 		this.sens = sens;
-	}
-	
-	/**
-	 * Constructeur d'un semaphore quelconque avec un seul capteur
-	 * @param segment Son segment de route
-	 * @param capteur Un capteur que l'on souhaite relier au semaphore a sa creation
-	 * @param sens Le sens de circulation auquel il appartient
-	 */
-	public Semaphore(Route segment,Capteur capteur,boolean sens) {
-		this(segment,new ArrayList<Capteur>(),sens);
-		this.addCapteur(capteur);
+		segment.addSemaphore(this);
 	}
 	
 	/**
@@ -47,6 +37,7 @@ public abstract class Semaphore {
 	 */
 	public Semaphore(Route segment,boolean sens) {
 		this(segment,new ArrayList<Capteur>(),sens);
+		segment.addSemaphore(this);
 	}
 	
 	/**

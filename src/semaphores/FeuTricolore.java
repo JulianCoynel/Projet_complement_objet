@@ -31,14 +31,8 @@ public class FeuTricolore extends Semaphore {
 		this.couleur = Tricolore.VERT;
 	}
 	
-	/**
-	 * Constructeur d'un feu tricolore avec un seul capteur, on initialise le feu a VERT
-	 * @param segment Son segment de route
-	 * @param capteur Un capteur que l'on souhaite relier au semaphore a sa creation
-	 * @param sens Le sens de circulation auquel il appartient
-	 */
-	public FeuTricolore(Route segment,Capteur capteur,boolean sens) {
-		super(segment, capteur, sens);
+	public FeuTricolore(Route segment,boolean sens) {
+		super(segment, sens);
 		this.couleur = Tricolore.VERT;
 	}
 	
