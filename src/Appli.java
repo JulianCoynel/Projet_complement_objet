@@ -59,15 +59,15 @@ public class Appli {
 		T4 = new FeuTricolore(R5,false);
 		T5 = new FeuTricolore(R8,true);
 		T6 = new FeuTricolore(R9,false);
-		P1 = new PanneauLimitationVitesse(R1,true,70);
-		P2 = new PanneauLimitationVitesse(R2,false,90);
-		P3 = new PanneauLimitationVitesse(R3,true,50);
-		P4 = new PanneauLimitationVitesse(R4,false,130);
-		P5 = new PanneauLimitationVitesse(R5,false,110);
-		P6 = new PanneauLimitationVitesse(R6,false,110);
-		P7 = new PanneauLimitationVitesse(R7,true,30);
-		P8 = new PanneauLimitationVitesse(R8,false,35);
-		P9 = new PanneauLimitationVitesse(R9,true,30);
+		P1 = new PanneauLimitationVitesse(R1,true,7);
+		P2 = new PanneauLimitationVitesse(R2,false,9);
+		P3 = new PanneauLimitationVitesse(R3,true,5);
+		P4 = new PanneauLimitationVitesse(R4,false,13);
+		P5 = new PanneauLimitationVitesse(R5,false,11);
+		P6 = new PanneauLimitationVitesse(R6,false,11);
+		P7 = new PanneauLimitationVitesse(R7,true,3);
+		P8 = new PanneauLimitationVitesse(R8,false,4);
+		P9 = new PanneauLimitationVitesse(R9,true,3);
 		
 		listeSemaphoreOrdonnee = new HashSet<Semaphore>(Arrays.asList(B1,B2,B3,T5,T6));
 		listeSemaphoreAbcisse = new HashSet<Semaphore>(Arrays.asList(B4,T1,T2,T3,T4));
@@ -98,11 +98,11 @@ public class Appli {
 		BA6 = new Barriere(R9);
 		
 		// ajouter les vehicules
-		V1 = new Voiture(90,R1,false);
-		V2 = new Voiture(130,R5,false);
-		V3 = new Voiture(60,R7,true);
-		V4 = new Voiture(100,R2,false);
-		V5 = new Voiture(20,R4,true);
+		V1 = new Voiture(9,R1,false);
+		V2 = new Voiture(13,R5,false);
+		V3 = new Voiture(6,R7,true);
+		V4 = new Voiture(10,R2,false);
+		V5 = new Voiture(2,R4,true);
 		listeVehicule = new HashSet<Vehicule>(Arrays.asList(V1,V2,V3,V4,V5));
 		
 		//Creation des elements de regulations
@@ -131,7 +131,13 @@ public class Appli {
 				v.avance();
 			}
 			System.out.println(R4.toString());
-			
+			System.out.println();
+
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }

@@ -246,7 +246,7 @@ public class Route {
 		//Sens False :
 		sb.append("SensFalse : ");
 		vehiculePresent = false;
-		for (int i = getLongueur()-1 ; i >= 0 ; i++ ) {
+		for (int i = getLongueur()-1 ; i >= 0 ; i-- ) {
 			for (Vehicule v : sesVehicules) {
 				if (v.estIci(this, false, i)) {
 					vehiculePresent = true;
