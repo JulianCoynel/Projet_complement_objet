@@ -22,11 +22,11 @@ public abstract class Capteur {
 		setSesSemaphores(semaphores);
 		sonElement=element;
 		sonSens=sens;
-		if(position<=segment.getLongueur()) {
+		if(0<=position && position<=segment.getLongueur()) {
 			saPosition=position;
 		}
 		else {
-			saPosition=segment.getLongueur();
+			throw new IllegalArgumentException("Capteur pas sur la route");
 		}
 	}
 	
@@ -62,6 +62,12 @@ public abstract class Capteur {
 	
 	public abstract Set<ResultatCapteur> getResultatCapteur(Route r);
 	
+	@Override
+	public String toString() {
+		Set<ResultatCapteur> res=getResultatCapteur(sonSegment);
+		return res.toString();
+	}
+	
 	public void setSonSegment(Route s) {
 		sonSegment=s;
 	}
@@ -93,5 +99,6 @@ public abstract class Capteur {
 	public boolean getSonSens() {
 		return sonSens;
 	}
+
 
 }

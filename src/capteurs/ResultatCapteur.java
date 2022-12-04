@@ -20,6 +20,18 @@ public class ResultatCapteur {
 		vitesseVoiture=vitesse;
 	}
 	
+	@Override
+	public String toString() {
+		String s="";
+		if (idVoiture>(-1)) {
+			s+="Presense("+idVoiture+")";
+		}
+		if (vitesseVoiture>(-1)) {
+			s+="Vitesse("+vitesseVoiture+")";
+		}
+		return s;
+	}
+	
 	public int getIdVoiture() {
 		return idVoiture;
 	}
