@@ -6,7 +6,6 @@ import semaphores.Semaphore;
 /**
  * La classe definissant un Element de Regulation
  * @author Theo DELORME
- *
  */
 public class ElementDeRegulation {
 	/** Implementation d'une interface fonctionnelle permetant de determiner la methode a appliquer sur un semaphore une fois l'element de regulation declanche **/

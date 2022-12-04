@@ -9,7 +9,6 @@ import vehicules.*;
 import regulations.*;
 
 public class Appli {
-	
 	static Route R1, R2, R3, R4, R5, R6, R7, R8, R9 ;
 	static HashSet<Route> listeRoute;
 	static FeuBicolore B1, B2, B3 ;
@@ -20,7 +19,9 @@ public class Appli {
 	static JonctionSimple J1;
 	static Voiture V1, V2, V3, V4, V5;
 	
-	public static void creerRoutes() {
+	
+	public static void main(String[] args) throws ErreurConstruction {
+		// creer les routes :
 		R1 = new Route(100);
 		R2 = new Route(80);
 		R3 = new Route(90);
@@ -30,7 +31,6 @@ public class Appli {
 		R7 = new Route(50);
 		R8 = new Route(30);
 		R9 = new Route(60);
-		
 		listeRoute = new HashSet<Route>();
 		listeRoute.add(R1);
 		listeRoute.add(R2);
@@ -41,9 +41,8 @@ public class Appli {
 		listeRoute.add(R7);
 		listeRoute.add(R8);
 		listeRoute.add(R9);
-	}
-	
-	public static void ajouterSemaphores() {
+		
+		// ajouter les semaphores
 		B1 = new FeuBicolore(R1,true);
 		B2 = new FeuBicolore(R1,false);
 		B3 = new FeuBicolore(R2,true);
@@ -59,10 +58,8 @@ public class Appli {
 		P7 = new PanneauLimitationVitesse(R7,true,30);
 		P8 = new PanneauLimitationVitesse(R8,false,35);
 		P9 = new PanneauLimitationVitesse(R9,true,30);
-			
-	}
-	
-	public static void ajouterJonctions() throws ErreurConstruction {
+		
+		// ajouter les jonctions
 		HashSet<Route> S1 = new HashSet<Route>();
 		S1.add(R5);
 		S1.add(R8);
@@ -79,32 +76,20 @@ public class Appli {
 		S3.add(R4);
 		S3.add(R6);
 		C3 = new Carrefour(S3);
-		
 		J1 = new JonctionSimple(R6,R7);
-		
 		BA1 = new Barriere(R1);
 		BA2 = new Barriere(R2);
 		BA3 = new Barriere(R3);
 		BA4 = new Barriere(R7);
 		BA5 = new Barriere(R8);
 		BA6 = new Barriere(R9);
-	}
-	
-	public static void ajouterVehicules() {
+		
+		// ajouter les vehicules
 		V1 = new Voiture(90,R1,false);
 		V2 = new Voiture(130,R5,false);
 		V3 = new Voiture(60,R7,true);
 		V4 = new Voiture(100,R2,false);
 		V5 = new Voiture(20,R4,true);
-	}
-	
-	
-	
-	public static void main(String[] args) throws ErreurConstruction {
-		creerRoutes();
-		ajouterSemaphores();
-		ajouterJonctions();
-		ajouterVehicules();
 		
 		for(Route r : listeRoute) {
 			if(!r.estValide()) {

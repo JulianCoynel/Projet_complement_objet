@@ -140,4 +140,98 @@ public class Route {
 		}
 		return 0;
 	}
+	
+	@Override
+	public String toString () {
+		StringBuilder sb = new StringBuilder();
+		boolean vehiculePresent, premier;
+		
+		//Sens True :
+		sb.append("SensTrue  : ");
+		vehiculePresent = false;
+		for (int i = 0 ; i < getLongueur() ; i++ ) {
+			for (Vehicule v : sesVehicules) {
+				if (v.estIci(this, true, i)) {
+					vehiculePresent = true;
+					break;
+				}
+			}
+			if (vehiculePresent) {
+				sb.append('<');
+			} else {
+				sb.append('-');
+			}
+			
+			vehiculePresent = false;
+		}
+
+		premier = true;
+		sb.append('[');
+		for (Semaphore s : sesSemaphores) {
+			if (s.getSonSens() == true) {
+				if (!premier) {
+					sb.append(" ; ");
+					premier = false;
+				}
+				sb.append(s);
+			}
+		}
+		premier = true;
+		sb.append(" | ");
+		for (Capteur c : sesCapteurs) {
+			if (c.getSonSens() == true) {
+				if (!premier) {
+					sb.append(" ; ");
+					premier = false;
+				}
+				sb.append(c);
+			}
+		}
+		sb.append(']');
+		
+		//Sens False :
+		sb.append("SensFalse : ");
+		vehiculePresent = false;
+		for (int i = 0 ; i < getLongueur() ; i++ ) {
+			for (Vehicule v : sesVehicules) {
+				if (v.estIci(this, false, i)) {
+					vehiculePresent = true;
+					break;
+				}
+			}
+			if (vehiculePresent) {
+				sb.append('<');
+			} else {
+				sb.append('-');
+			}
+			
+			vehiculePresent = false;
+		}
+
+		premier = true;
+		sb.append('[');
+		for (Semaphore s : sesSemaphores) {
+			if (s.getSonSens() == false) {
+				if (!premier) {
+					sb.append(" ; ");
+					premier = false;
+				}
+				sb.append(s);
+			}
+		}
+		premier = true;
+		sb.append(" | ");
+		for (Capteur c : sesCapteurs) {
+			if (c.getSonSens() == false) {
+				if (!premier) {
+					sb.append(" ; ");
+					premier = false;
+				}
+				sb.append(c);
+			}
+		}
+		sb.append(']');
+		
+		return sb.toString();
+	}
 }
