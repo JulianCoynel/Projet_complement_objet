@@ -11,6 +11,7 @@ import regulations.*;
 public class Appli {
 	
 	static Route R1, R2, R3, R4, R5, R6, R7, R8, R9 ;
+	static HashSet<Route> listeRoute;
 	static FeuBicolore B1, B2, B3 ;
 	static FeuTricolore T1, T2, T3;
 	static PanneauLimitationVitesse P1, P2, P3, P4, P5, P6, P7, P8, P9;
@@ -29,6 +30,17 @@ public class Appli {
 		R7 = new Route(50);
 		R8 = new Route(30);
 		R9 = new Route(60);
+		
+		listeRoute = new HashSet<Route>();
+		listeRoute.add(R1);
+		listeRoute.add(R2);
+		listeRoute.add(R3);
+		listeRoute.add(R4);
+		listeRoute.add(R5);
+		listeRoute.add(R6);
+		listeRoute.add(R7);
+		listeRoute.add(R8);
+		listeRoute.add(R9);
 	}
 	
 	public static void ajouterSemaphores() {
@@ -93,6 +105,13 @@ public class Appli {
 		ajouterSemaphores();
 		ajouterJonctions();
 		ajouterVehicules();
+		
+		for(Route r : listeRoute) {
+			if(!r.estValide()) {
+				
+				return;
+			}
+		}
 		
 		while(true) {
 			
