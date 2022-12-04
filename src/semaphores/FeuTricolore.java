@@ -96,10 +96,13 @@ public class FeuTricolore extends Semaphore {
 		switch (this.couleur) {
 		case ORANGE:
 			res += "Orange ";
+			break;
 		case ROUGE:
 			res += "Rouge ";
+			break;
 		case VERT:
 			res += "Vert ";
+			break;
 		}
 		return res;
 	}

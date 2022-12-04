@@ -91,8 +91,10 @@ public class FeuBicolore extends Semaphore {
 		switch (this.couleur) {
 		case ROUGE:
 			res += "Rouge ";
+			break;
 		case VERT:
 			res += "Vert ";
+			break;
 		}
 		return res;
 	}
