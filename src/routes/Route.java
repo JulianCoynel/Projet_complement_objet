@@ -187,11 +187,12 @@ public class Route {
 				int limitation = s.getLimitationVitesse();
 				if (limitation != -1) {
 					v = Math.min(v, limitation);
+				} else {
+					v = v / s.getDivisionVitesse();
 				}
-				v = v / s.getDivisionVitesse();
 			}
 		}
-		return 0;
+		return v;
 	}
 	
 	@Override
@@ -210,7 +211,7 @@ public class Route {
 				}
 			}
 			if (vehiculePresent) {
-				sb.append('<');
+				sb.append('>');
 			} else {
 				sb.append('-');
 			}
@@ -222,10 +223,8 @@ public class Route {
 		sb.append('[');
 		for (Semaphore s : sesSemaphores) {
 			if (s.getSonSens() == true) {
-				if (!premier) {
-					sb.append(" ; ");
-					premier = false;
-				}
+				if (!premier)	{ sb.append(" ; ");}
+				else			{ premier = false; }
 				sb.append(s.toString());
 			}
 		}
@@ -254,7 +253,7 @@ public class Route {
 				}
 			}
 			if (vehiculePresent) {
-				sb.append('>');
+				sb.append('<');
 			} else {
 				sb.append('-');
 			}
@@ -266,10 +265,8 @@ public class Route {
 		sb.append('[');
 		for (Semaphore s : sesSemaphores) {
 			if (s.getSonSens() == false) {
-				if (!premier) {
-					sb.append(" ; ");
-					premier = false;
-				}
+				if (!premier)	{ sb.append(" ; ");}
+				else			{ premier = false; }
 				sb.append(s);
 			}
 		}
