@@ -117,7 +117,7 @@ public class Appli {
 		//Creation des elements de regulations
 		E1 = new ElementDeRegulation((s) -> s.passerAuRouge() , listeSemaphoreOrdonnee);
 		E2 = new ElementDeRegulation((s) -> s.passerAuVert() , listeSemaphoreOrdonnee);
-		E3 = new ElementDeRegulation((s) -> s.passerAuRouge() , listeSemaphoreAbcisse);
+		E3 = new ElementDeRegulation((s) -> s.changerFeu() , listeSemaphoreAbcisse);
 		E4 = new ElementDeRegulation((s) -> s.passerAuVert() , listeSemaphoreAbcisse);
 		
 		//Creation des capteurs
@@ -159,21 +159,6 @@ public class Appli {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
-			/**		
-			//Affichage de l'�tat d'une route aleatoire
-			Random random = new Random();
-			int randomNumber = random.nextInt(listeRoute.size());
-			Iterator<? extends Route> iterator = listeRoute.iterator();
-			int currentIndex = 0;
-			Route randomElement = null;
-			while (iterator.hasNext()) {
-				randomElement = iterator.next();
-				if (currentIndex == randomNumber)
-					System.out.println(randomElement.toString());
-				currentIndex++;
-			}
-*/
 		}
 	}
 }

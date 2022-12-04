@@ -101,10 +101,8 @@ public class Route {
 		for (Semaphore s : sesSemaphores) {
 			if (s.getSonSens() == sens) {
 				if (s.estRouge()) {
-					System.out.println("-> rouge (l=" + longueur + ")");
 					res = true;
 				} else {
-					System.out.println("-> vert/orange (l=" + longueur + ")");
 				}
 			}
 		}
