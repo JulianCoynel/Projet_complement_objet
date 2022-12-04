@@ -65,14 +65,6 @@ public class FeuTricolore extends Semaphore {
 	public void passerAuVert() {
 		this.couleur = Tricolore.VERT;
 	}
-	
-	/**
-	 * Permet de recuperer la couleur d'un feu
-	 * @return la couleur actuelle du feu
-	 */
-	public Tricolore getCouleur() {
-		return couleur;
-	}
 
 	@Override
 	public int getDivisionVitesse() {

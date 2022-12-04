@@ -65,14 +65,6 @@ public class FeuBicolore extends Semaphore {
 	public void passerAuVert() {
 		this.couleur = Bicolore.VERT;
 	}
-	
-	/**
-	 * Permet de recuperer la couleur d'un feu
-	 * @return la couleur actuelle du feu
-	 */
-	public Bicolore getCouleur() {
-		return couleur;
-	}
 
 	@Override
 	public int getDivisionVitesse() {
