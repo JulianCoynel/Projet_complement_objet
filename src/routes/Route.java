@@ -226,7 +226,7 @@ public class Route {
 					sb.append(" ; ");
 					premier = false;
 				}
-				sb.append(s);
+				sb.append(s.toString());
 			}
 		}
 		premier = true;
@@ -237,7 +237,7 @@ public class Route {
 					sb.append(" ; ");
 					premier = false;
 				}
-				sb.append(c);
+				sb.append(c.toString());
 			}
 		}
 		sb.append(']');

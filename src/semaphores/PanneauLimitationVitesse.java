@@ -73,4 +73,11 @@ public class PanneauLimitationVitesse extends Semaphore {
 	public int getLimitationVitesse() {
 		return vitesseMax;
 	}
+	
+	@Override
+	public String toString () {
+		String res = super.toString();
+		res += "Panneau de limitation," + this.vitesseMax + " ";
+		return res;
+	}
 }

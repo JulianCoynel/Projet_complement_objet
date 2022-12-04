@@ -55,20 +55,6 @@ public abstract class Semaphore {
 	public ArrayList<Capteur> getSesCapteurs() {
 		return sesCapteurs;
 	}
-
-	/**
-	 * Permet de savoir si un feu est rouge
-	 * @return true si le feu est rouge, false sinon
-	 */
-	public abstract boolean estRouge();
-	
-	public abstract boolean estFeu();
-	
-	public abstract void passerAuRouge();
-	
-	public abstract void passerAuOrange();
-	
-	public abstract void passerAuVert();
 	
 	/**
 	 * Permet de changer le segment de route d'un semaphore
@@ -94,7 +80,23 @@ public abstract class Semaphore {
 		return sens;
 	}
 	
+	@Override
+	public String toString () {
+		String res = "Semaphore : ";
+		return res;
+	}
+	
 	public abstract int getDivisionVitesse();
 	
 	public abstract int getLimitationVitesse();
+	
+	public abstract boolean estRouge();
+	
+	public abstract boolean estFeu();
+	
+	public abstract void passerAuRouge();
+	
+	public abstract void passerAuOrange();
+	
+	public abstract void passerAuVert();
 }

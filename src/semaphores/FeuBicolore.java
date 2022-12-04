@@ -83,4 +83,17 @@ public class FeuBicolore extends Semaphore {
 	public int getLimitationVitesse() {
 		return -1;
 	}
+	
+	@Override
+	public String toString () {
+		String res = super.toString();
+		res += "Feu Bicolore,";
+		switch (this.couleur) {
+		case ROUGE:
+			res += "Rouge ";
+		case VERT:
+			res += "Vert ";
+		}
+		return res;
+	}
 }

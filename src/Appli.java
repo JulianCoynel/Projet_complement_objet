@@ -130,6 +130,7 @@ public class Appli {
 			for(Vehicule v : listeVehicule) {
 				v.avance();
 			}
+			System.out.println(R4.toString());
 		}
 	}
 }
