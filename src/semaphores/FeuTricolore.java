@@ -38,12 +38,7 @@ public class FeuTricolore extends Semaphore {
 	
 	@Override
 	public boolean estRouge() {
-		switch (this.couleur) {
-		case ROUGE:
-			return true;
-		default:
-			return false;
-		}
+		return this.couleur == Tricolore.ROUGE;
 	}
 	
 	@Override
