@@ -1,6 +1,7 @@
 package capteurs;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 import exception.ErreurResultatCapteurImpossible;
@@ -17,11 +18,15 @@ public abstract class Capteur {
 	private int saPosition;
 	
 	
-	public Capteur(Route segment,ArrayList<Semaphore> semaphores,ElementDeRegulation element,boolean sens,int position) {
+	public Capteur(Route segment,Set<Semaphore> semaphores,ElementDeRegulation element,boolean sens,int position) {
 		sonSegment=segment;
 		setSesSemaphores(semaphores);
 		sonElement=element;
 		sonSens=sens;
+		segment.addCapteur(this);
+		for(Semaphore s : semaphores) {
+			s.addCapteur(this);
+		}
 		if(0<=position && position<=segment.getLongueur()) {
 			saPosition=position;
 		}
@@ -31,12 +36,12 @@ public abstract class Capteur {
 	}
 	
 	/*On met de base le capteur au milieu de la route*/
-	public Capteur(Route segment,ArrayList<Semaphore> semaphores,ElementDeRegulation element,boolean sens) {
+	public Capteur(Route segment,Set<Semaphore> semaphores,ElementDeRegulation element,boolean sens) {
 		this(segment,semaphores,element,sens,segment.getLongueur()/2);
 	}
 	
 	public Capteur(Route segment,Semaphore semaphore,ElementDeRegulation element,boolean sens,int position) {
-		this(segment,new ArrayList<Semaphore>(),element,sens,position);
+		this(segment,new HashSet<Semaphore>(),element,sens,position);
 		addSemaphore(semaphore);
 	}
 	
@@ -72,7 +77,7 @@ public abstract class Capteur {
 		sonSegment=s;
 	}
 	
-	public void setSesSemaphores(ArrayList<? extends Semaphore> sl) {
+	public void setSesSemaphores(Set<? extends Semaphore> sl) {
 		sesSemaphores=new ArrayList<Semaphore>(sl);
 	}
 	

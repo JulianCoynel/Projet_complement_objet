@@ -14,6 +14,7 @@ public class Appli {
 	static HashSet<Route> listeRoute;
 	static HashSet<Semaphore> listeSemaphoreAbcisse;
 	static HashSet<Semaphore> listeSemaphoreOrdonnee;
+	static HashSet<Vehicule> listeVehicule;
 	static FeuBicolore B1, B2, B3, B4 ;
 	static FeuTricolore T1, T2, T3, T4, T5, T6;
 	static PanneauLimitationVitesse P1, P2, P3, P4, P5, P6, P7, P8, P9;
@@ -21,8 +22,9 @@ public class Appli {
 	static Carrefour C1, C2, C3;
 	static JonctionSimple J1;
 	static Voiture V1, V2, V3, V4, V5;
-	static ElementDeRegulation E1, E2, E3, E4, E5;
-	
+	static ElementDeRegulation E1, E2, E3, E4;
+	static CapteurVitesse CV1, CV2;
+	static CapteurPresence CP1, CP2;
 	
 	public static void main(String[] args) throws ErreurConstruction {
 		// creer les routes :
@@ -101,27 +103,33 @@ public class Appli {
 		V3 = new Voiture(60,R7,true);
 		V4 = new Voiture(100,R2,false);
 		V5 = new Voiture(20,R4,true);
+		listeVehicule = new HashSet<Vehicule>(Arrays.asList(V1,V2,V3,V4,V5));
 		
 		//Creation des elements de regulations
 		E1 = new ElementDeRegulation((s) -> s.passerAuRouge() , listeSemaphoreOrdonnee);
 		E2 = new ElementDeRegulation((s) -> s.passerAuVert() , listeSemaphoreOrdonnee);
 		E3 = new ElementDeRegulation((s) -> s.passerAuRouge() , listeSemaphoreAbcisse);
 		E4 = new ElementDeRegulation((s) -> s.passerAuVert() , listeSemaphoreAbcisse);
-		E5 = new ElementDeRegulation((s) -> s.passerAuOrange() , listeSemaphoreOrdonnee);
 		
 		//Creation des capteurs
+		CP1 = new CapteurPresence(R4,listeSemaphoreOrdonnee,E1,true);
+		CV1 = new CapteurVitesse(R4,listeSemaphoreAbcisse,E3,false);
+		CP2 = new CapteurPresence(R2,listeSemaphoreOrdonnee,E2,true);
+		CV2 = new CapteurVitesse(R2,listeSemaphoreAbcisse,E4,false);
 		
 		//Vérification de la validité de la construction de toutes les routes
 		for(Route r : listeRoute) {
 			if(!r.estValide()) {
-				System.out.println("Erreur route");
+				System.out.println("Erreur construction de route");
 				return;
 			}
 		}
 		
 		//Boucle qui lance la simulation
 		while(true) {
-			
+			for(Vehicule v : listeVehicule) {
+				v.avance();
+			}
 		}
 	}
 }

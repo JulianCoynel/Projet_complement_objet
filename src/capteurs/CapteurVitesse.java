@@ -1,6 +1,5 @@
 package capteurs;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,11 +11,11 @@ import vehicules.Vehicule;
 
 public class CapteurVitesse extends Capteur {
 
-	public CapteurVitesse(Route segment, ArrayList<Semaphore> semaphores, ElementDeRegulation element,boolean sens) {
+	public CapteurVitesse(Route segment, Set<Semaphore> semaphores, ElementDeRegulation element,boolean sens) {
 		super(segment, semaphores, element, sens);
 	}
 
-	public CapteurVitesse(Route segment, ArrayList<Semaphore> semaphores, ElementDeRegulation element,boolean sens,int position) {
+	public CapteurVitesse(Route segment, Set<Semaphore> semaphores, ElementDeRegulation element,boolean sens,int position) {
 		super(segment, semaphores, element, sens,position);
 	}
 	

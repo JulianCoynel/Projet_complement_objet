@@ -1,7 +1,6 @@
 package routes;
 
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 import capteurs.Capteur;
@@ -82,6 +81,14 @@ public class Route {
 	 */
 	public void addSemaphore(Semaphore semaphore) {
 		sesSemaphores.add(semaphore);
+	}
+	
+	/**
+	 * Inscrit un capteur a la liste de tout les capteur de cette route
+	 * @param c le capteur a ajouter
+	 */
+	public void addCapteur(Capteur c) {
+		sesCapteurs.add(c);
 	}
 	
 	/**

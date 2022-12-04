@@ -49,14 +49,6 @@ public abstract class Semaphore {
 	}
 	
 	/**
-	 * Permet de retirer un capteur a la liste de capteurs relies au semaphore
-	 * @param c Le capteur a retirer
-	 */
-	public void removeCapteur(Capteur c) {
-		sesCapteurs.remove(c);
-	}
-	
-	/**
 	 * Permet de recuperer son ArrayList de capteurs
 	 * @return sa liste de capteurs
 	 */
@@ -92,14 +84,6 @@ public abstract class Semaphore {
 	 */
 	public Route getSonSegment() {
 		return sonSegment;
-	}
-	
-	/**
-	 * Permet de changer les capteurs d'un semaphore
-	 * @param cl Une liste de capteurs relies au semaphore
-	 */
-	public void setSesCapteurs(ArrayList<? extends Capteur> cl) {
-		sesCapteurs=new ArrayList<Capteur>(cl);
 	}
 	
 	/**

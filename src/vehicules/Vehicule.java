@@ -1,5 +1,6 @@
 package vehicules;
 
+import exception.ErreurConstruction;
 import jonctions.Jonction;
 import routes.Route;
 
@@ -48,8 +49,9 @@ public abstract class Vehicule {
 	
 	/**
 	 * Permet de deplace le vehicule a son nouvelle emplacement apres l'ecoulement d'une unite de temps
+	 * @throws ErreurConstruction 
 	 */
-	public void avance() {
+	public void avance() throws ErreurConstruction {
 		int v = getVitesse();
 		borne += v;
 		
