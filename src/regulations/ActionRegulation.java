@@ -7,7 +7,7 @@ import semaphores.Semaphore;
  * @author Theo DELORME
  */
 @FunctionalInterface
-interface ActionRegulation {
+public interface ActionRegulation {
 	/** Methode a apliquer sur un semaphore une fois l'element de regulation declenche */
 	void appliquerA (Semaphore semaphore);
 }
