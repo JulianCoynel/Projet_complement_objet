@@ -150,7 +150,7 @@ public class Appli {
 					s.changerFeu();
 				}
 			}
-			
+			n++;
 			System.out.println(R4.toString());
 			System.out.println();
 
@@ -174,7 +174,6 @@ public class Appli {
 				currentIndex++;
 			}
 */
-			n++;
 		}
 	}
 }
