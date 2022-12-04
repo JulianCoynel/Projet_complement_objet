@@ -141,8 +141,8 @@ public class Appli {
 				v.avance();
 			}
 			//Les feux changent 1 fois sur 3
-			if(n%3==0) {
-				n = 0;
+			if(n%4==0) {
+				n = 1;
 				for(Semaphore s : listeSemaphoreAbcisse) {
 					s.changerFeu();
 				}
