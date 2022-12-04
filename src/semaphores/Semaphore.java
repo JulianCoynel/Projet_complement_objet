@@ -49,6 +49,22 @@ public abstract class Semaphore {
 	}
 	
 	/**
+	 * Permet de changer le segment de route d'un semaphore
+	 * @param seg Son segment de route
+	 */
+	public void setSonSegment(Route seg) {
+		sonSegment = seg;
+	}
+	
+	/**
+	 * Permet de recuperer son segment de route
+	 * @return Son segment de route
+	 */
+	public Route getSonSegment() {
+		return sonSegment;
+	}
+	
+	/**
 	 * Permet de recuperer le sens de circulation du semaphore
 	 * @return son sens de circulation
 	 */
