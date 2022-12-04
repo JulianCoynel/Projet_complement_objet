@@ -222,10 +222,8 @@ public class Route {
 		sb.append('[');
 		for (Semaphore s : sesSemaphores) {
 			if (s.getSonSens() == true) {
-				if (!premier) {
-					sb.append(" ; ");
-					premier = false;
-				}
+				if (!premier)	{ sb.append(" ; ");}
+				else			{ premier = false; }
 				sb.append(s.toString());
 			}
 		}
@@ -266,10 +264,8 @@ public class Route {
 		sb.append('[');
 		for (Semaphore s : sesSemaphores) {
 			if (s.getSonSens() == false) {
-				if (!premier) {
-					sb.append(" ; ");
-					premier = false;
-				}
+				if (!premier)	{ sb.append(" ; ");}
+				else			{ premier = false; }
 				sb.append(s);
 			}
 		}

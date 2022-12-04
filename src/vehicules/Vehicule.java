@@ -52,6 +52,7 @@ public abstract class Vehicule {
 	 * @throws ErreurConstruction 
 	 */
 	public void avance() throws ErreurConstruction {
+		
 		int v = getVitesse();
 		borne += v;
 		
