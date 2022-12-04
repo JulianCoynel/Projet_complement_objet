@@ -20,7 +20,7 @@ public class ElementDeRegulation {
 	 */
 	public ElementDeRegulation(ActionRegulation action, Set<Semaphore> sesSemaphores){
 		sonAction = action;
-                this.sesSemaphores = sesSemaphores
+        this.sesSemaphores = sesSemaphores;
 	}
 	
 	/**

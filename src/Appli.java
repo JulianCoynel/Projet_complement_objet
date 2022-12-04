@@ -117,7 +117,7 @@ public class Appli {
 		CP2 = new CapteurPresence(R2,listeSemaphoreOrdonnee,E2,true);
 		CV2 = new CapteurVitesse(R2,listeSemaphoreAbcisse,E4,false);
 		
-		//Vérification de la validité de la construction de toutes les routes
+		//Verification de la validite de la construction de toutes les routes
 		for(Route r : listeRoute) {
 			if(!r.estValide()) {
 				System.out.println("Erreur construction de route");
