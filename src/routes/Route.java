@@ -211,7 +211,7 @@ public class Route {
 				}
 			}
 			if (vehiculePresent) {
-				sb.append('<');
+				sb.append('>');
 			} else {
 				sb.append('-');
 			}
@@ -253,7 +253,7 @@ public class Route {
 				}
 			}
 			if (vehiculePresent) {
-				sb.append('>');
+				sb.append('<');
 			} else {
 				sb.append('-');
 			}
