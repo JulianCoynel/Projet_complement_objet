@@ -27,6 +27,7 @@ public class Appli {
 	static ElementDeRegulation E1, E2, E3, E4;
 	static CapteurVitesse CV1, CV2;
 	static CapteurPresence CP1, CP2;
+	static int n = 0;
 	
 	public static void main(String[] args) throws ErreurConstruction {
 		// creer les routes :
@@ -72,7 +73,13 @@ public class Appli {
 		P9 = new PanneauLimitationVitesse(R9,true,30);
 		
 		listeSemaphoreOrdonnee = new HashSet<Semaphore>(Arrays.asList(B1,B2,B3,T5,T6));
+		for(Semaphore s : listeSemaphoreOrdonnee) {
+			s.passerAuRouge();
+		}
 		listeSemaphoreAbcisse = new HashSet<Semaphore>(Arrays.asList(B4,T1,T2,T3,T4));
+		for(Semaphore s : listeSemaphoreAbcisse) {
+			s.passerAuVert();
+		}
 		
 		// ajouter les jonctions
 		HashSet<Route> S1 = new HashSet<Route>();
@@ -129,31 +136,37 @@ public class Appli {
 		
 		//Boucle qui lance la simulation
 		while(true) {
+			//Les vehicules avancent
 			for(Vehicule v : listeVehicule) {
 				v.avance();
+			}
+			//Les feux changent 1 fois sur 3
+			if(n%3==0) {
+				n = 0;
+				for(Semaphore s : listeSemaphoreAbcisse) {
+					s.changerFeu();
+				}
+				for(Semaphore s : listeSemaphoreOrdonnee) {
+					s.changerFeu();
+				}
 			}
 			
 			System.out.println(R4.toString());
 			/**		
 			//Affichage de l'état d'une route aleatoire
 			Random random = new Random();
-			// Generate a random number using nextInt
-			// method of the Random class.
 			int randomNumber = random.nextInt(listeRoute.size());
 			Iterator<? extends Route> iterator = listeRoute.iterator();
 			int currentIndex = 0;
 			Route randomElement = null;
-			// iterate the HashSet
 			while (iterator.hasNext()) {
 				randomElement = iterator.next();
-				// if current index is equal to random number
 				if (currentIndex == randomNumber)
 					System.out.println(randomElement.toString());
-				// increase the current index
 				currentIndex++;
 			}
 */
-			
+			n++;
 		}
 	}
 }

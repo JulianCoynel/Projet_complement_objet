@@ -99,4 +99,6 @@ public abstract class Semaphore {
 	public abstract void passerAuOrange();
 	
 	public abstract void passerAuVert();
+	
+	public abstract void changerFeu();
 }
