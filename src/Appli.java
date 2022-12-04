@@ -65,7 +65,7 @@ public class Appli {
 		P1 = new PanneauLimitationVitesse(R1,true,7);
 		P2 = new PanneauLimitationVitesse(R2,false,9);
 		P3 = new PanneauLimitationVitesse(R3,true,5);
-		P4 = new PanneauLimitationVitesse(R4,false,13);
+		P4 = new PanneauLimitationVitesse(R4,false,10);
 		P5 = new PanneauLimitationVitesse(R5,false,11);
 		P6 = new PanneauLimitationVitesse(R6,false,11);
 		P7 = new PanneauLimitationVitesse(R7,true,3);

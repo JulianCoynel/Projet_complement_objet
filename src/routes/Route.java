@@ -187,11 +187,12 @@ public class Route {
 				int limitation = s.getLimitationVitesse();
 				if (limitation != -1) {
 					v = Math.min(v, limitation);
+				} else {
+					v = v / s.getDivisionVitesse();
 				}
-				v = v / s.getDivisionVitesse();
 			}
 		}
-		return 0;
+		return v;
 	}
 	
 	@Override
