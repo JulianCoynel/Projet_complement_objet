@@ -241,11 +241,12 @@ public class Route {
 			}
 		}
 		sb.append(']');
+		sb.append('\n');
 		
 		//Sens False :
 		sb.append("SensFalse : ");
 		vehiculePresent = false;
-		for (int i = 0 ; i < getLongueur() ; i++ ) {
+		for (int i = getLongueur()-1 ; i >= 0 ; i++ ) {
 			for (Vehicule v : sesVehicules) {
 				if (v.estIci(this, false, i)) {
 					vehiculePresent = true;
@@ -253,7 +254,7 @@ public class Route {
 				}
 			}
 			if (vehiculePresent) {
-				sb.append('<');
+				sb.append('>');
 			} else {
 				sb.append('-');
 			}

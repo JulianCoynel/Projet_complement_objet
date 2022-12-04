@@ -131,6 +131,7 @@ public class Appli {
 				v.avance();
 			}
 			System.out.println(R4.toString());
+			
 		}
 	}
 }
