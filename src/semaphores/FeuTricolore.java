@@ -90,6 +90,22 @@ public class FeuTricolore extends Semaphore {
 	}
 	
 	@Override
+	public void changerFeu() {
+		switch (this.couleur) {
+		case ROUGE:
+			this.couleur = Tricolore.VERT;
+			break;
+		case VERT:
+			this.couleur = Tricolore.ORANGE;
+			break;
+		case ORANGE:
+			this.couleur = Tricolore.ROUGE;
+			break;
+		}
+		return;
+	}
+	
+	@Override
 	public String toString () {
 		String res = super.toString();
 		res += "Feu Tricolore,";

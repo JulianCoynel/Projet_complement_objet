@@ -80,4 +80,9 @@ public class PanneauLimitationVitesse extends Semaphore {
 		res += "Panneau de limitation," + this.vitesseMax + " ";
 		return res;
 	}
+
+	@Override
+	public void changerFeu() {
+		return;
+	}
 }

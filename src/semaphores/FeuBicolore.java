@@ -85,6 +85,19 @@ public class FeuBicolore extends Semaphore {
 	}
 	
 	@Override
+	public void changerFeu() {
+		switch (this.couleur) {
+		case ROUGE:
+			this.couleur = Bicolore.VERT;
+			break;
+		case VERT:
+			this.couleur = Bicolore.ROUGE;
+			break;
+		}
+		return;
+	}
+	
+	@Override
 	public String toString () {
 		String res = super.toString();
 		res += "Feu Bicolore,";
