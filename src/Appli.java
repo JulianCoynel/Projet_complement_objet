@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashSet;
 
 import exception.*;
@@ -11,13 +12,16 @@ import regulations.*;
 public class Appli {
 	static Route R1, R2, R3, R4, R5, R6, R7, R8, R9 ;
 	static HashSet<Route> listeRoute;
-	static FeuBicolore B1, B2, B3 ;
-	static FeuTricolore T1, T2, T3;
+	static HashSet<Semaphore> listeSemaphoreAbcisse;
+	static HashSet<Semaphore> listeSemaphoreOrdonnee;
+	static FeuBicolore B1, B2, B3, B4 ;
+	static FeuTricolore T1, T2, T3, T4, T5, T6;
 	static PanneauLimitationVitesse P1, P2, P3, P4, P5, P6, P7, P8, P9;
 	static Barriere BA1, BA2, BA3, BA4, BA5, BA6;
 	static Carrefour C1, C2, C3;
 	static JonctionSimple J1;
 	static Voiture V1, V2, V3, V4, V5;
+	static ElementDeRegulation E1, E2, E3, E4, E5;
 	
 	
 	public static void main(String[] args) throws ErreurConstruction {
@@ -43,12 +47,16 @@ public class Appli {
 		listeRoute.add(R9);
 		
 		// ajouter les semaphores
-		B1 = new FeuBicolore(R1,true);
-		B2 = new FeuBicolore(R1,false);
-		B3 = new FeuBicolore(R2,true);
-		T1 = new FeuTricolore(R3,false);
-		T2 = new FeuTricolore(R7,false);
-		T3 = new FeuTricolore(R9,false);
+		B1 = new FeuBicolore(R1,false);
+		B2 = new FeuBicolore(R2,true);
+		B3 = new FeuBicolore(R3,true);
+		B4 = new FeuBicolore(R6,true);
+		T1 = new FeuTricolore(R4,true);
+		T2 = new FeuTricolore(R4,false);
+		T3 = new FeuTricolore(R5,true);
+		T4 = new FeuTricolore(R5,false);
+		T5 = new FeuTricolore(R8,true);
+		T6 = new FeuTricolore(R9,false);
 		P1 = new PanneauLimitationVitesse(R1,true,70);
 		P2 = new PanneauLimitationVitesse(R2,false,90);
 		P3 = new PanneauLimitationVitesse(R3,true,50);
@@ -58,6 +66,9 @@ public class Appli {
 		P7 = new PanneauLimitationVitesse(R7,true,30);
 		P8 = new PanneauLimitationVitesse(R8,false,35);
 		P9 = new PanneauLimitationVitesse(R9,true,30);
+		
+		listeSemaphoreOrdonnee = new HashSet<Semaphore>(Arrays.asList(B1,B2,B3,T5,T6));
+		listeSemaphoreAbcisse = new HashSet<Semaphore>(Arrays.asList(B4,T1,T2,T3,T4));
 		
 		// ajouter les jonctions
 		HashSet<Route> S1 = new HashSet<Route>();
@@ -91,15 +102,24 @@ public class Appli {
 		V4 = new Voiture(100,R2,false);
 		V5 = new Voiture(20,R4,true);
 		
-		//Verification que toutes les routes sont valides
+		//Creation des elements de regulations
+		E1 = new ElementDeRegulation((s) -> s.passerAuRouge() , listeSemaphoreOrdonnee);
+		E2 = new ElementDeRegulation((s) -> s.passerAuVert() , listeSemaphoreOrdonnee);
+		E3 = new ElementDeRegulation((s) -> s.passerAuRouge() , listeSemaphoreAbcisse);
+		E4 = new ElementDeRegulation((s) -> s.passerAuVert() , listeSemaphoreAbcisse);
+		E5 = new ElementDeRegulation((s) -> s.passerAuOrange() , listeSemaphoreOrdonnee);
+		
+		//Creation des capteurs
+		
+		//Vérification de la validité de la construction de toutes les routes
 		for(Route r : listeRoute) {
 			if(!r.estValide()) {
-				
+				System.out.println("Erreur route");
 				return;
 			}
 		}
 		
-		//Boucle temporel : 1 tour de boucle = une unite temporelle
+		//Boucle qui lance la simulation
 		while(true) {
 			
 		}
