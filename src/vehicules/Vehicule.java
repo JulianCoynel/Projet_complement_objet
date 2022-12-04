@@ -110,6 +110,7 @@ public abstract class Vehicule {
 		if (r == null) {
 			throw new IllegalArgumentException("Le vehicule ne peut pas etre sur une Route 'null'");
 		}
+		getRoute().removeVehicule(this);
 		saRoute = r;
 		r.addVehicule(this);
 	}

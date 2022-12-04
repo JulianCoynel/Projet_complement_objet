@@ -6,8 +6,8 @@ public class ResultatCapteur {
 	private int vitesseVoiture;
 	
 	ResultatCapteur(){
-		idVoiture=-1;
-		vitesseVoiture=-1;
+		idVoiture = -1;
+		vitesseVoiture = -1;
 	}
 	
 	ResultatCapteur(int id){
@@ -22,12 +22,12 @@ public class ResultatCapteur {
 	
 	@Override
 	public String toString() {
-		String s="";
+		String s = "";
 		if (idVoiture>(-1)) {
-			s+="Presense("+idVoiture+")";
+			s += "Presense(" + idVoiture + ")";
 		}
 		if (vitesseVoiture>(-1)) {
-			s+="Vitesse("+vitesseVoiture+")";
+			s += "Vitesse(" + vitesseVoiture + ")";
 		}
 		return s;
 	}

@@ -91,6 +91,7 @@ public class Appli {
 		V4 = new Voiture(100,R2,false);
 		V5 = new Voiture(20,R4,true);
 		
+		//Verification que toutes les routes sont valides
 		for(Route r : listeRoute) {
 			if(!r.estValide()) {
 				
@@ -98,6 +99,7 @@ public class Appli {
 			}
 		}
 		
+		//Boucle temporel : 1 tour de boucle = une unite temporelle
 		while(true) {
 			
 		}

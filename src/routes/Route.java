@@ -10,13 +10,20 @@ import jonctions.Jonction;
 import semaphores.Semaphore;
 import vehicules.Vehicule;
 
+/**
+ * La classe definissant un segment de route
+ * @author Theo DELORME
+ */
 public class Route {
+	/** Le nombre de troncon qui constituent la route **/
 	private final int  longueur;
+	/** La jonction atteinte apres avoir parcouru la route dans le sens true **/
 	private Jonction jonctionSensTrue;
+	/** La jonction atteinte apres avoir parcouru la route dans le sens false **/
 	private Jonction jonctionSensFalse;
 	/** Ensembles des Semaphore de la route **/
 	private Set<Semaphore> sesSemaphores;
-	/** Ensembles des Vehicule de la route **/
+	/** Ensembles des Vehicule present actuellement sur cette route **/
 	private Set<Vehicule> sesVehicules;
 	/** Ensembles des Capteur de la route **/
 	private Set<Capteur> sesCapteurs;
@@ -52,15 +59,36 @@ public class Route {
 			throw new ErreurConstruction("Une route ne peu avoir que deux jonctions");
 		}
 	}
-
+	
+	/**
+	 * Ajoute un vehicule sur cette route
+	 * @param vehicule le vehicule a ajouter
+	 */
 	public void addVehicule(Vehicule vehicule) {
 		sesVehicules.add(vehicule);
 	}
 	
+	/**
+	 * Retire un vehicule de cette route
+	 * @param vehicule le vehicule a retirer
+	 */
+	public void removeVehicule(Vehicule vehicule) {
+		sesVehicules.remove(vehicule);
+	}
+	
+	/**
+	 * Inscrit un semaphore a la liste de tout les semaphore de cette route
+	 * @param semaphore le semaphore a ajouter
+	 */
 	public void addSemaphore(Semaphore semaphore) {
 		sesSemaphores.add(semaphore);
 	}
 	
+	/**
+	 * Indique si un feu situer a l'extremite de la route dans le sens d'ecrit est ROUGE
+	 * @param sens le sens observe
+	 * @return true si l'un des feux decris est ROUGE, false si il n'y a pas de feu ou qu'aucun n'est ROUGE
+	 */
 	public boolean feuRouge(boolean sens) {
 		for (Semaphore s : sesSemaphores) {
 			if (s.getSonSens() == sens) {
@@ -71,6 +99,11 @@ public class Route {
 		return false;
 	}
 	
+	/**
+	 * Indique si un feu est situer a l'extremite de la route dans le sens d'ecrit
+	 * @param sens le sens observe
+	 * @return true si un feu est present dans le bon sens, false sinon
+	 */
 	public boolean feu(boolean sens) {
 		for (Semaphore s : sesSemaphores) {
 			if (s.getSonSens() == sens) {
@@ -109,11 +142,24 @@ public class Route {
 		return res;
 	}
 	
+	/**
+	 * Retourne le nombre de troncon qui constituent cette route
+	 * @return la longueur de la route
+	 */
 	public int getLongueur() {
 		return longueur;
 	}
 	
-	public Jonction getJonction(boolean sens) {
+	/**
+	 * Retourne la jonction atteinte apres avoir parcouru la voie dans le sens decrit
+	 * @param sens le sens dont on souhaite connaitre la destination
+	 * @return La jonction correspondante
+	 * @throws ErreurConstruction si la route n'est pas valide
+	 */
+	public Jonction getJonction(boolean sens) throws ErreurConstruction {
+		if (!estValide()) {
+			throw new ErreurConstruction("La route n'est pas correctement construite verifier qu'elle a bien 2 jonctions");
+		}
 		if (sens == true) {
 			return jonctionSensTrue;
 		} else {
