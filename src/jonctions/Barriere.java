@@ -11,5 +11,4 @@ public class Barriere extends Jonction{
 		sesVoies = new HashMap<Route, Boolean>();
 		addRoute(r);
 	}
-	
 }

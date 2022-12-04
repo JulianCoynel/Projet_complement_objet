@@ -8,7 +8,6 @@ import routes.Route;
 /**
  * La classe abstraite permettant de definir les semaphores
  * @author Romain BAUDOUIN
- *
  */
 public abstract class Semaphore {
 	/** Le segment auquel appartient le semaphore */

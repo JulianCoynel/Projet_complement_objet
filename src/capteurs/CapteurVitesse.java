@@ -26,7 +26,7 @@ public class CapteurVitesse extends Capteur {
 				RC.add(new ResultatCapteur(v.getID(),v.getVitesse()));
 			}
 			return RC;
-		}catch(ErreurResultatCapteurImpossible e) {
+		} catch(ErreurResultatCapteurImpossible e) {
 			Set<ResultatCapteur> RC=new HashSet<ResultatCapteur>();
 			RC.add(new ResultatCapteur());
 			return RC;

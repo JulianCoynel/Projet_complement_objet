@@ -8,7 +8,6 @@ import routes.Route;
 /**
  * La classe definissant un semaphore de type feu bicolore
  * @author Romain BAUDOUIN
- *
  */
 public class FeuBicolore extends Semaphore {
 	

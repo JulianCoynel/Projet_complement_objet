@@ -8,7 +8,6 @@ import routes.Route;
 /**
  * La classe definissant un semaphore de type panneau de limitation de vitesse
  * @author Romain BAUDOUIN
- *
  */
 public class PanneauLimitationVitesse extends Semaphore {
 	
