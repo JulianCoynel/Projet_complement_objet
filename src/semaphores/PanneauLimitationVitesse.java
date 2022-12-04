@@ -31,14 +31,6 @@ public class PanneauLimitationVitesse extends Semaphore {
 		this.vitesseMax = v;
 	}
 	
-	/**
-	 * Permet de changer la vitesse max indiquee par le panneau
-	 * @param v la nouvelle vitesse max indiquee par le panneau
-	 */
-	public void setVitesseMax(int v) {
-		vitesseMax = v;
-	}
-	
 	@Override
 	public boolean estRouge() {
 		return false;
