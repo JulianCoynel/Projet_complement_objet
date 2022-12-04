@@ -12,24 +12,25 @@ import vehicules.*;
 import regulations.*;
 
 public class Appli {
-	static Route R1, R2, R3, R4, R5, R6, R7, R8, R9 ;
 	static HashSet<Route> listeRoute;
 	static HashSet<Semaphore> listeSemaphoreAbcisse;
 	static HashSet<Semaphore> listeSemaphoreOrdonnee;
 	static HashSet<Vehicule> listeVehicule;
-	static FeuBicolore B1, B2, B3, B4 ;
-	static FeuTricolore T1, T2, T3, T4, T5, T6;
-	static PanneauLimitationVitesse P1, P2, P3, P4, P5, P6, P7, P8, P9;
-	static Barriere BA1, BA2, BA3, BA4, BA5, BA6;
-	static Carrefour C1, C2, C3;
-	static JonctionSimple J1;
-	static Voiture V1, V2, V3, V4, V5;
-	static ElementDeRegulation E1, E2, E3, E4;
-	static CapteurVitesse CV1, CV2;
-	static CapteurPresence CP1, CP2;
 	static int n = 0;
 	
 	public static void main(String[] args) throws ErreurConstruction {
+		Route R1, R2, R3, R4, R5, R6, R7, R8, R9 ;
+		FeuBicolore B1, B2, B3, B4 ;
+		FeuTricolore T1, T2, T3, T4, T5, T6;
+		PanneauLimitationVitesse P1, P2, P3, P4, P5, P6, P7, P8, P9;
+		Barriere BA1, BA2, BA3, BA4, BA5, BA6;
+		Carrefour C1, C2, C3;
+		JonctionSimple J1;
+		Voiture V1, V2, V3, V4, V5;
+		ElementDeRegulation E1, E2, E3, E4;
+		CapteurVitesse CV1, CV2;
+		CapteurPresence CP1, CP2;
+		
 		// creer les routes :
 		R1 = new Route(101);
 		R2 = new Route(82);
